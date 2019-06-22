@@ -4,6 +4,7 @@ import '../App.css'
 
 class SignUp extends Component {
     
+    
     render() {
         
         return (

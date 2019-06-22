@@ -11,36 +11,48 @@ curl -k 'https://cloud.iexapis.com/stable/stock/aapl/quote?token=YOUR_TOKEN_HERE
 
 
 To start Flask:
-venv installing:
-in the base directory of your project:
- virtualenv venv
+---to install:
+    virtualenv venv
+
 that will create a folder called venv that has a complete setup
 then in the terminal where you are going to test your code or run the server, run the command source venv/bin/activate
 that will change your command prompt to include "venv" so you know you are working in the environment
 the environment will be a totally fresh python installation so after activating it, you will need to 
 need to install:
 
-sudo apt install python-pip
-pip install flask requests flask-cors
+---Flask can save previous .pyc files. So for clean it:
+    sudo find . -name "*.pyc" -exec rm -f {} \;
+    sudo apt-get update
+    sudo apt install python3-pip
+    pip install flask requests flask-cors
+---to save requirements:
+    pip freeze --local > requirements.txt
+---to check requirements:
+    cat requirements.txt
+---to delete (name_env):
+    rm -rf name_env/
+---to install requirements on other project:
+    pip install -r requirements.txt  
 
-enter your virtualenv:
-source venv/bin/activate
+---enter your virtualenv:
+    source venv/bin/activate
+    export FLASK_DEBUG=1
+    flask run
 
-export FLASK_DEBUG=1
+Mysql:
+---to start Mysql:
+    sudo service mysql start
 
-flask run
+---phpAdmin restarting:
+    sudo service apache2 restart
 
-to start Mysql:
-sudo service mysql start
-
-phpAdmin restarting:
-sudo service apache2 restart
-
-To start React:
-npm install -g npx
-installation: npx create-react-app name_of_app
-To run: npm start
-npm install react-router react-router-dom;
+---To start React:
+    npm install -g npx
+---installation: 
+    npx create-react-app name_of_app
+---To run:
+    npm start
+    npm install react-router react-router-dom;
 
 """libraries""""
 npm install round-to (js:
@@ -81,35 +93,35 @@ curl 127.0.0.1:5000/api/stock/add/aapl
 
 
 
-
+OLD:
 curl 127.0.0.1:5000
 
 curl 127.0.0.1:5000/api/price/aapl
 
-curl 127.0.0.1:5000/api/JA4JOIVIJBK6WPI/balance
+curl 127.0.0.1:5000/api/YOUR_API_KEY/balance
 
-curl 127.0.0.1:5000/api/JA4JOIVIJBK6WPI/positions
+curl 127.0.0.1:5000/api/YOUR_API_KEY/positions
 
-curl -H "Content-Type: application/json" -X PUT -d '{"amount": 100.0}' http://127.0.0.1:5000/api/JA4JOIVIJBK6WPI/deposit
+curl -H "Content-Type: application/json" -X PUT -d '{"amount": 100.0}' http://127.0.0.1:5000/api/YOUR_API_KEY/deposit
 
-curl 127.0.0.1:5000/api/JA4JOIVIJBK6WPI/position_for/tsla
+curl 127.0.0.1:5000/api/YOUR_API_KEY/position_for/tsla
 
-curl 127.0.0.1:5000/api/JA4JOIVIJBK6WPI/trades
+curl 127.0.0.1:5000/api/YOUR_API_KEY/trades
 
-curl 127.0.0.1:5000/api/JA4JOIVIJBK6WPI/trades_for/tsla
+curl 127.0.0.1:5000/api/YOUR_API_KEY/trades_for/tsla
 
 # buy should return a response with the username, the balance, and the position for that stock
 
-curl -H "Content-Type: application/json" -X POST -d '{"ticker": "tsla", "amount": 1}' http://127.0.0.1:5000/api/JA4JOIVIJBK6WPI/buy
+curl -H "Content-Type: application/json" -X POST -d '{"ticker": "tsla", "amount": 1}' http://127.0.0.1:5000/api/YOUR_API_KEY/buy
 
 # sell should return a response with the username, the balance, and the position for that stock
 
-curl -H "Content-Type: application/json" -X POST -d '{"ticker": "tsla", "amount": 1}' http://127.0.0.1:5000/api/JA4JOIVIJBK6WPI/sell
+curl -H "Content-Type: application/json" -X POST -d '{"ticker": "tsla", "amount": 1}' http://127.0.0.1:5000/api/YOUR_API_KEY/sell
 
 # call report ten stocks by criteria: /mostactive, /gainers, /losers, /iexvolume, /iexpercent, /infocus :
 
 
 
-curl 127.0.0.1:5000/api/JA4JOIVIJBK6WPI/summary
+curl 127.0.0.1:5000/api/YOUR_API_KEY/summary
 
 curl -H "Content-Type: application/json" -X POST -d '{"username": 'Egle', "password":'mypass'}' http://127.0.0.1:5000/api/signup

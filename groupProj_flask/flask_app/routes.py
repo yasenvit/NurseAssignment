@@ -24,10 +24,12 @@ def root():
 
 @app.route('/api/signup', methods=['POST'])
 def signUp():
+    print("/n/nroute/n/n")
     if not request.json or 'username' not in request.json or 'password' not in request.json:
         return jsonify(BAD_REQUEST), 400
     username = request.json["username"]
     password = request.json["password"]
+    print("/n/n/n/n/n/n Route /n/n/n/n/n/n/n/")
     checking = Account.get_name(username)
     if len(checking) > 0 or len(password) < 6:
         return jsonify(APP_ERROR), 500

@@ -11,7 +11,8 @@ import './App.css'
 
 class App extends Component {
   state={
-    members:null
+    members:null,
+    refresh:""
   }
   currentTime() {
     this.setState ({
@@ -20,11 +21,13 @@ class App extends Component {
   }
 
   signup = (username, password) => {
+    console.log(username, password)
     const promise = apiCall('/api/signup', 'post', {
       "username": username,
       "password": password
     })
     promise.then(blob=>blob.json()).then(json=>{
+      console.log("api key: ",json.api_key)
       if (json.api_key !== undefined) {
         window.sessionStorage.setItem("apikey", json.api_key)
         window.sessionStorage.setItem("username", json.username)
