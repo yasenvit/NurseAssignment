@@ -1,0 +1,5 @@
+*.pyc
+tmp/
+venv/
+node_modules/
+
