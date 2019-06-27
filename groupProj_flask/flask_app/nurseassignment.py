@@ -61,8 +61,8 @@ def caremanagermemberinfo():
     json_list=[cmr.jsonquery() for cmr in cmresults]
     return jsonify({"output":json_list})
 
-@app.route('/api/newcaremanager',methods=['POST'])
-def newcaremanager():
+@app.route('/api/<api_key>/newcaremanager',methods=['POST'])
+def newcaremanager(api_key):
     if not request.json or 'lastname' not in request.json or 'firstname' not in request.json or 'zipcode' not in request.json:
         return jsonify(BADREQUEST),400
     

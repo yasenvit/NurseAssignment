@@ -31,20 +31,6 @@ export class FormUserDetails extends Component {
           />
           <br />
           <TextField
-            hintText="Enter Your Email"
-            floatingLabelText="Email"
-            onChange={handleChange('email')}
-            defaultValue={values.email}
-          />
-          <br />
-          <TextField
-            hintText="Enter Your Phone Number"
-            floatingLabelText="Phone Number"
-            onChange={handleChange('phoneNumber')}
-            defaultValue={values.phoneNumber}
-          />
-          <br />
-          <TextField
             hintText="Zipcodes, comma separated"
             floatingLabelText="Enter Prefered Zipcodes"
             onChange={handleChange('zipcodes')}
