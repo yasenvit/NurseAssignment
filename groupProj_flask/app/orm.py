@@ -11,7 +11,7 @@ class ORM:
     val=""
 
     # name of the database
-    database = "nurseassignment.db"
+    database = "./nurseassignment.db"
 
     def __init__(self):
         """ initialize properties for each column in the table """
@@ -100,6 +100,21 @@ class ORM:
             cur = conn.cursor()
             SQLPATTERN = "SELECT * FROM {table} {where_clause};"
             SQL = SQLPATTERN.format(table=cls.table, where_clause=where_clause)
+            cur.execute(SQL, values)
+            result = []
+            for row in cur.fetchall():
+                result.append(cls._from_row(row))
+            return result
+
+    @classmethod
+    def select_many_query(cls, field_clause="",where_clause="",from_clause="FROM {cls.table}", values=tuple()):
+        """ provide a WHERE clause to a SELECT statement and return objects
+        representing each matched row """
+        with sqlite3.connect(cls.database) as conn:
+            conn.row_factory = sqlite3.Row
+            cur = conn.cursor()
+            SQLPATTERN = "SELECT {field_clause} {from_clause} {where_clause};"
+            SQL = SQLPATTERN.format(field_clause=field_clause,from_clause=from_clause, where_clause=where_clause)
             cur.execute(SQL, values)
             result = []
             for row in cur.fetchall():
