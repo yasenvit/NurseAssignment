@@ -18,17 +18,17 @@ export class Success extends Component {
           <h4>Accessor registration has been completed </h4>
           <p></p>
           <RaisedButton
-            label="back to main page"
+            label="back to beginning"
             primary={false}
             style={styles.button}
             onClick={this.props.backToMain}
           />
 
-<RaisedButton
-            label="back to main page"
+  <RaisedButton
+            label="go to assignments"
             primary={true}
             style={styles.button}
-
+            onClick={this.props.updateAssessor}
           />
         </React.Fragment>
       </MuiThemeProvider>

@@ -6,6 +6,7 @@ import Display from './Display'
 
 export default class Assignment extends Component {
     state = {
+        newManager: this.props.newManager,
         members: [],
         isShow: false,
         manager: null
@@ -31,8 +32,8 @@ export default class Assignment extends Component {
     }
     
     render() {
-        console.log("manager:",this.state.manager)
-        console.log("members state:",this.state.members)
+        console.log("NewManager Props:",this.props.newManager)
+ 
     let output = (<div></div>)
     let bttn = (<button></button>)
     

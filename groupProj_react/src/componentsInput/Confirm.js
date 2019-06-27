@@ -21,8 +21,7 @@ export class Confirm extends Component {
   }
 
   continue = e => {
-    console.log(this.props.values)
-    e.preventDefault();
+     e.preventDefault();
     // PROCESS FORM //
     this.getRecord(this.props.values)
     this.props.nextStep();
@@ -35,7 +34,7 @@ export class Confirm extends Component {
 
   render() {
     const {
-      values: { firstName, lastName, email, phoneNumber, zipcodes, maxCasesLoad }
+      values: { firstName, lastName, zipcodes, maxCasesLoad }
     } = this.props;
 
     return (
@@ -45,13 +44,10 @@ export class Confirm extends Component {
           <List>
             <ListItem primaryText="First Name" secondaryText={firstName} />
             <ListItem primaryText="Last Name" secondaryText={lastName} />
-            <ListItem primaryText="Email" secondaryText={email} />
-            <ListItem primaryText="Phone Number" secondaryText={phoneNumber} />
             <ListItem primaryText="Prefered Zipcodes" secondaryText={zipcodes} />
             <ListItem primaryText="Maximum cases" secondaryText={maxCasesLoad} />
           </List>
-          <br />
-          
+              
           <RaisedButton
             label="Back"
             primary={false}
