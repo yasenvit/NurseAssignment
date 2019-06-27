@@ -28,7 +28,7 @@ def _deactivate(args):
 _deactivate(["nondestructive"])
 aliases["deactivate"] = _deactivate
 
-$VIRTUAL_ENV = r"/mnt/c/Users/yavit/OneDrive/Desktop/groupProj_googleMap/google_map_project/NurseAssignment_flask/venv"
+$VIRTUAL_ENV = r"/mnt/c/Users/yavit/OneDrive/Desktop/groupProj_googleMap/google_map_project/groupProj_flask/venv"
 
 $_OLD_VIRTUAL_PATH = $PATH
 $PATH = $PATH[:]

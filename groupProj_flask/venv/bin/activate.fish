@@ -56,7 +56,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/mnt/c/Users/yavit/OneDrive/Desktop/groupProj_googleMap/google_map_project/NurseAssignment_flask/venv"
+set -gx VIRTUAL_ENV "/mnt/c/Users/yavit/OneDrive/Desktop/groupProj_googleMap/google_map_project/groupProj_flask/venv"
 
 # https://github.com/fish-shell/fish-shell/issues/436 altered PATH handling
 if test (echo $FISH_VERSION | tr "." "\n")[1] -lt 3

@@ -40,7 +40,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/mnt/c/Users/yavit/OneDrive/Desktop/groupProj_googleMap/google_map_project/NurseAssignment_flask/venv"
+VIRTUAL_ENV="/mnt/c/Users/yavit/OneDrive/Desktop/groupProj_googleMap/google_map_project/groupProj_flask/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

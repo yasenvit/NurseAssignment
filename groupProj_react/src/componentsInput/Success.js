@@ -19,9 +19,16 @@ export class Success extends Component {
           <p></p>
           <RaisedButton
             label="back to main page"
-            primary={true}
+            primary={false}
             style={styles.button}
             onClick={this.props.backToMain}
+          />
+
+<RaisedButton
+            label="back to main page"
+            primary={true}
+            style={styles.button}
+
           />
         </React.Fragment>
       </MuiThemeProvider>
