@@ -8,7 +8,7 @@ SALT = "nobody will ever guess this"
 
 class Account(ORM):
     fields = ["username", "password_hash", "api_key"]
-    table = "accounts"
+    table = "staffaccounts"
 
     def __init__(self):
         self.pk = None
@@ -36,7 +36,6 @@ class Account(ORM):
 
     @classmethod
     def get_name(cls, newname):
-        print("/n/n/n/n/n ACCOUNT GET NAME FUNCTION ",newname,"/n/n/n/n/n/n")
         where = "WHERE username=?"
         values = (newname,)
         return cls.select_many(where, values)

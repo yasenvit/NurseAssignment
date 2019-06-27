@@ -4,12 +4,14 @@ import sqlite3
 class ORM:
     # list of the column names in the table, except for pk
     fields = []
+    pk=""
 
     # name of the table in database
-    table = "accounts"
+    table = "example"
+    val=""
 
     # name of the database
-    database = "staffaccounts.db"
+    database = "nurseassignment.db"
 
     def __init__(self):
         """ initialize properties for each column in the table """
@@ -36,13 +38,14 @@ class ORM:
         with sqlite3.connect(self.database) as conn:
             cur = conn.cursor()
             SQLPATTERN = "INSERT INTO {tablename}({fieldnames}) VALUES({qmarks});"
+            
             fieldnames = ", ".join(self.fields)
             qmarks = ", ".join(["?" for _ in self.fields])
             SQL = SQLPATTERN.format(
                 tablename=self.table, fieldnames=fieldnames, qmarks=qmarks)
 
             values = self._field_value_list()
-
+            
             cur.execute(SQL, values)
             """ cur.lastrowid = pk that was created in the most recent insert """
             self.pk = cur.lastrowid
@@ -51,14 +54,14 @@ class ORM:
 
         with sqlite3.connect(self.database) as conn:
             cur = conn.cursor()
-            SQLPATTERN = "UPDATE {table} SET {pairs} WHERE pk = ?;"
+            SQLPATTERN = "UPDATE {table} SET {pairs} WHERE {pk} = ?;"
             # fieldname=value, fieldname=value
             """ list comprehension generating field1=?, field2=?, field3=? etc. """
             pairstrings = [
                 "{}=?".format(fieldname) for fieldname in self.fields
             ]
             pairs = ", ".join(pairstrings)
-            SQL = SQLPATTERN.format(table=self.table, pairs=pairs)
+            SQL = SQLPATTERN.format(table=self.table, pairs=pairs,pk=self.pk)
 
             """ tuple with all field values as well as pk """
             values = (*self._field_value_list(), self.pk)
@@ -72,9 +75,9 @@ class ORM:
 
         with sqlite3.connect(self.database) as conn:
             cur = conn.cursor()
-            SQLPATTERN = "DELETE FROM {table} WHERE pk = ?;"
+            SQLPATTERN = "DELETE FROM {table} WHERE {pk} = ?;"
             SQL = SQLPATTERN.format(table=self.table)
-            cur.execute(SQL, (self.pk, ))
+            cur.execute(SQL, (self.pk,self.pk ))
 
     @classmethod
     def _from_row(cls, row):
@@ -120,9 +123,26 @@ class ORM:
             return cls._from_row(row)
 
     @classmethod
+    def max_pk(cls, pkid):
+        """ provide a WHERE clause and return one object that corresponds to
+        the row SELECTED or None if no results matched """
+        
+        with sqlite3.connect(cls.database) as conn:
+            conn.row_factory = sqlite3.Row
+            cur = conn.cursor()
+            SQLPATTERN = "SELECT max({pkid}) FROM {table}"
+            SQL = SQLPATTERN.format(table=cls.table,pkid=pkid)
+            cur.execute(SQL, ())
+            row = cur.fetchone()
+
+            if row is None:
+                return None
+            return cls._from_row(row)
+
+    @classmethod
     def from_pk(cls, pk):
         """ grab the row with the given pk """
-        return cls.select_one("WHERE pk = ?", (pk, ))
+        return cls.select_one("WHERE {pk} = ?", (pk, ))
 
 
 # INSERT INTO testtable(field1, field2) VALUES (?, ?);

@@ -1,5 +1,7 @@
+.App {
+  text-align: center;
+}
 /*************************header for all****************************/
-
 .body-box {
   box-sizing: border-box;
   margin-top: 0px;
@@ -8,95 +10,81 @@
   height: 100vh;
   padding: 2px;
   }
-
-  .header {
-    box-sizing: border-box;
-    height: 5vh;  
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    padding: 2px;
-  }
+.header {
+  box-sizing: border-box;
+  height: 5vh;  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
 /*******************************login page*************************************/
-
-  .header-center {
-    box-sizing: border-box;
-    display:"flex";
-    flex:"1";
-    text-align:center
-  }
-    .logs-block {
-    
-    display: flex;
-    flex-direction: row;
-    flex:initial;
-    width: 25%;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0.1rem;
-    }
-    .loginBox,
-    .signupBox {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    height: 200px;
-    width: 250px;
-    justify-content: center;
-    align-items: center;
-    margin: 2rem;
-    padding: 1rem;
-    background-color: #c4c2c2;
-    opacity: 0.8
-    }
-     .output-container {
-      box-sizing: border-box;
-      display: flex;
-      width:100%;
-      padding: 2px;
-      justify-content: center;
-      align-items: center;
-     }
+.header-center {
+  box-sizing: border-box;
+  display:"flex";
+  flex:"1";
+  text-align:center
+}
+.logs-block {
+  display: flex;
+  flex-direction: row;
+  flex:initial;
+  width: 25%;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.1rem;
+}
+.loginBox,
+.signupBox {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  width: 250px;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+  padding: 1rem;
+  background-color: #c4c2c2;
+  opacity: 0.8
+}
+.output-container {
+  box-sizing: border-box;
+  display: flex;
+  width:100%;
+  padding: 2px;
+  justify-content: center;
+  align-items: center;
+}
 /***************************home*******************************/    
 .nav {
   height: 10%;
-  background-color: rgb(134, 121, 78);
 }
 .home-container {
   box-sizing: border-box;
   height:100%;
   width: 100%;
-  background-color: rgb(128, 128, 128);
 }
 .home-header {
   box-sizing: border-box;
   height: 10%;  
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  padding: 2px;
-  background-color: aquamarine
+  background-color: rgb(191, 226, 192);
 }
 .home-output {
   box-sizing: border-box;
   height: 80%;
   width: 100%;
-  padding: 5px;
-  background-color: yellow;
 }
-
-
-
-
 .assignment {
   box-sizing: border-box;
   background-color: skyblue;
   height: 100%;
   padding: 5px;
 }
-
 .assignment-work {
   box-sizing: border-box;
   display: flex;
@@ -123,7 +111,6 @@
   justify-content: flex-start;
   align-items: stretch;
 }
-
 .assignment-map {
   float: left;
   box-sizing: border-box;
@@ -141,39 +128,84 @@
 .inpt-box {
   padding: 2px;
 }
-
-
-
-
-
+/********************************************************************/
+.asr {
+  box-sizing: border-box;
+  padding:5px;
+  display: flex;
+  flex-direction: row;
+  height: 80%;
+  width: 100%;
+  background-color: burlywood;
+}
+.asr-column-left {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex:1; 
+  background-color: green;
+  border: 2px solid darkolivegreen;
+}
+.asr-column-right {
+  box-sizing: border-box;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  flex:1; 
+  background-color: #a09b86;
+  border: 2px solid red;
+}
+.asr-row {
+  box-sizing: border-box;
+  padding: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10px;
+  border: 2px solid green;
+} 
+.asr-title {
+  display: flex;
+  flex: inherit;
+  width:200px;
+  text-align: start;
+  padding-left: 2rem;
+}
+.asr-input {
+  flex:1;
+  text-align: start;
+}
+.zip-but {
+  display: flex;
+  justify-content: flex-start;
+  background-color: brown;
+  width:100px
+}
+/********************************************************************/
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  border: 1px solid #e7e7e7;
-  background-color: #a09b86;
+  background-color:  rgb(92, 185, 95);
 }
-
 li {
   float: left;
+  border-right: 1px solid rgb(248, 240, 196);
 }
-li a {
-  
+li a {  
   display: block;
   color: rgb(46, 44, 44);
   text-align: center;
   padding: 5px 7px;
   text-decoration: none;
+  color: white;
 }
 li a:hover:not(.active) {
-  background-color: rgb(212, 207, 176);
+  background-color: rgb(163, 233, 204);
+  color: rgb(5, 133, 5)
 }
 li a.active {
   color: white;
   background-color: #4CAF50;
 }
-
-
-
-
