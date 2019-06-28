@@ -38,7 +38,7 @@ export class UserForm extends Component {
     })
   }
   isClicked = () => {
-    this.props.gotoAssignment(this.state)
+    this.props.updateAssessor(this.state)
   }
 
   // Handle fields change
@@ -71,7 +71,7 @@ export class UserForm extends Component {
       case 3:
         return <Success 
         backToMain = {this.backToMain}
-        updateAssessor={this.props.updateAssessor}
+        isClicked = {this.isClicked}
         />;
     }
   }

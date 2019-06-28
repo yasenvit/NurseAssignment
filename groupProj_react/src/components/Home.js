@@ -21,12 +21,9 @@ export default class Home extends Component {
 
         let appLogout= [<Logout clicked={this.props.clicked}/>]
         let routeList = [
-        <Route exact path="/assessor"  render={(props)=><Assessor updateAssessor={this.updateAssessor} />}/>,
-        <Route exact path="/assignment"  render={()=> <Assignment newAssessor={this.state.newAssessor} />} />,
+        <Route exact path="/assessor"  render={(props)=><Assessor newAssessor={this.state.newAssessor} updateAssessor={this.updateAssessor} {...props} />}/>,
+        <Route exact path="/assignment"  render={(props)=> <Assignment newAssessor={this.state.newAssessor} {...props} />} />,
             ]
-        if(this.state.newAssessor) {
-            return <Redirect to="/assignment"/>
-        }
 
         return (
             <div className="home-container">

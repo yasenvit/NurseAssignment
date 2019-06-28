@@ -80,11 +80,11 @@ class App extends Component {
     let appLogin = []
     let routeList = []
     let appSignUp = []
-    let output = []
+    let output = [<div className='empty'></div>]
     
     if (isloggedin()){
       output = (
-        <div>
+        <div className="isLoggedIn">
           <Home clicked={this.logoutClick}/>
         </div>
       )
@@ -115,9 +115,10 @@ class App extends Component {
       </div>
       ]
     }
+    
     return (
       <BrowserRouter>
-        <div>
+        <div className="App">
           {output}
         </div>
       </BrowserRouter>
