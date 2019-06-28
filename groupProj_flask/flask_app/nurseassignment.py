@@ -29,7 +29,17 @@ def error500(e):
 def root():    
     return jsonify({"name":"Nurse Assignment Tool"})
 
+@app.route('/api/caremanagermemberinfo',methods=['POST'])
+def caremanagermemberinfo():
+    if not request.json or 'cmpk' not in request.json:
+        return jsonify(BADREQUEST),400
+    
+    cm=caremanagermember.Caremanagermember()   
+    cm.pk=request.json['cmpk']    
+    cmresults=cm.get_results_query()
 
+    json_list=[cmr.jsonquery() for cmr in cmresults]
+    return jsonify({"output":json_list})
 
 @app.route('/api/caremanagerinfo',methods=['POST'])
 def caremanagerinfo():
@@ -107,7 +117,7 @@ def getcaremanagerassignment():
 @app.route('/api/signup', methods=['POST'])
 def signUp():
     if not request.json or 'username' not in request.json or 'password' not in request.json:
-        return jsonify(BAD_REQUEST), 400
+        return jsonify(BADREQUEST), 400
     username = request.json["username"]
     password = request.json["password"]
     checking = Account.get_name(username)
@@ -128,7 +138,7 @@ def get_api_key():
         return jsonify(BADREQUEST), 400
     account = Account.login(request.json['username'], request.json['password'])
     if not account:
-        return jsonify(UNATHORIZED), 401
+        return jsonify(UNAUTHORIZED), 401
     return jsonify({
         'username': account.username,
         'api_key': account.api_key
@@ -138,6 +148,6 @@ def get_api_key():
 def get_members(api_key,managerID):
     acc = Account.api_authenticate(api_key)
     if not acc:
-        return jsonify(UNATHORIZED), 401
+        return jsonify(UNAUTHORIZED), 401
     membersList  = util.get_assigned_members(managerID)
     return jsonify({'members': membersList})
