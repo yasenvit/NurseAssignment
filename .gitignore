@@ -1,5 +1,7 @@
 *.pyc
 tmp/
+bak/
 venv/
 node_modules/
-
+package-lock.json
+*.db

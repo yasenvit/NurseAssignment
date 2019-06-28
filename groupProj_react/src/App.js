@@ -89,7 +89,7 @@ class App extends Component {
         </div>
       )
     } else {
-      appLogin=[<Link to="/login" style={{color:"brown", textDecoration: "none"}}>Sing in</Link>]
+      appLogin=[<Link to="/login" style={{color:"brown", textDecoration: "none"}}>Sign in</Link>]
       appSignUp=[<Link to="/signup" style={{color:"brown", textDecoration: "none"}} >Sign up</Link>]
       routeList=[
         <Route exact path="/signup" render={(props)=><SignUp {...props} signupfunc={this.signup} />}/>,
