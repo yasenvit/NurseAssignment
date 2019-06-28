@@ -28,7 +28,7 @@ export class Success extends Component {
             label="go to assignments"
             primary={true}
             style={styles.button}
-            onClick={this.props.updateAssessor}
+            onClick={this.props.isClicked}
           />
         </React.Fragment>
       </MuiThemeProvider>
