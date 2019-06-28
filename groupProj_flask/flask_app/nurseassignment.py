@@ -112,7 +112,7 @@ def signUp():
     password = request.json["password"]
     checking = Account.get_name(username)
     if len(checking) > 0 or len(password) < 6:
-        return jsonify(APP_ERROR), 500
+        return jsonify(APPERROR), 500
     new = Account()
     new.signUp(username, password)
     new.save()
@@ -125,7 +125,7 @@ def signUp():
 def get_api_key():
     if not request.json or 'username' not in request.json or\
         'password' not in request.json:
-        return jsonify(BAD_REQUEST), 400
+        return jsonify(BADREQUEST), 400
     account = Account.login(request.json['username'], request.json['password'])
     if not account:
         return jsonify(UNATHORIZED), 401
