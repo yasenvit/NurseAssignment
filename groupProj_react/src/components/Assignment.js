@@ -18,7 +18,8 @@ export default class Assignment extends Component {
         cmselect:null,
         populatelistflag:true,
         assignedlist:null,
-        fileresponse:null
+        fileresponse:null,
+        singlemember:[]
     }
     /*Eric Hall's Added functions on 06/27/2019 */
     assigncaremanagers=()=>{
@@ -106,12 +107,34 @@ export default class Assignment extends Component {
            })
         })
       }
+
+      getSingleMembers(name,membername) {
+        console.log("GET getMembers FUNCTION")
+        console.log("apikey:",window.sessionStorage.getItem("apikey"))
+        const endpoint = '/api/caremanagersinglememberinfo'
+        console.log('single member')
+        console.log(endpoint)
+        const promise = apiCall(endpoint,'POST',{"cmpk":name,"mempk":membername})
+          promise.then(blob => blob.json()).then (json=> {
+            this.setState({
+              singlemember: json.output,
+           })
+        })
+      } 
     onClickHandler = (name)=>{
         this.setState({
             manager: name,
-            isShow: !this.state.isShow
+            isShow: true//!this.state.isShow
         })
         this.getMembers(name)
+    }
+
+    onClickHandlerMember = (name,membername)=>{
+        this.setState({
+            manager: name,
+            isShow: false//!this.state.isShow
+        })
+        this.getSingleMembers(name,membername)
     }
     
     render() {
@@ -132,64 +155,145 @@ export default class Assignment extends Component {
         )
         output = (
             <div className="assignment-map">
-                <Display members = {this.state.members.slice(0,2)}/>
+                <Display members = {this.state.members}/>
             </div>
         )
     } else {
         bttn = (
             <button type="button" onClick={(event) =>{
-                this.onClickHandler(
-                    document.getElementById('managerName').value
+                this.onClickHandlerMember(
+                    // document.getElementById('managerName').value
+                    this.state.singlemember
                 )
             }}>
                 show map
             </button>
         )
         output = (
+            
             <div className="assignment-map">
                 
+                <Display members = {this.state.singlemember}/>
             </div>
         )
     }
+    let re=this.state.caremanagerlist
+    if(this.state.populatelistflag===true){
+        if(re!==null){
+            for(var item=0;item<re.length;item++)
+        {
+            let cl=null
+            
+            cl={value:re[item]['cmpk'],label:re[item]['caremanagerfirstname']+" "+re[item]['caremanagerlastname']}
+            this.state.selectcaremanagerlist.push(cl)
+            console.log(re[item]['cmpk'])
+            this.state.populatelistflag=false
+        }
+        }}
+        console.log(this.state.selectcaremanagerlist)
+        let outputtable=(<div><h1>Data Results:</h1></div>) 
+        let theader=(<div></div>) 
+        let tdetail=null 
+        if (this.state.fileresponse=='Upload Successful'){
+            
+            theader=results=>{return(
+              <table><th>Care Manager</th>
+              <th>Member Last Name</th>
+              <th>Member First Name</th>
+              <th>Member Address</th>
+              <th>Member City</th>
+              <th>Member State</th>
+              <th>Member Zip</th>
+              <th>View</th>
+              </table>)}
+           
+            tdetail=this.state.assignedlist.map(assigndata=>{
+
+                return(
+                    <tr>
+                        <td>{assigndata.caremanagerfirstname} {assigndata.caremanagerlastname}</td>
+                        <td>{assigndata.memberlastname}</td>
+                        <td>{assigndata.memberfirstname}</td>
+                        <td>{assigndata.memberaddress}</td>
+                        <td>{assigndata.membercity}</td>
+                        <td>{assigndata.memberstate}</td>
+                        <td>{assigndata.memberzip}</td>
+                        <td><button onClick={(event)=>{
+                            this.onClickHandlerMember(
+                                
+                                assigndata.cmpk,
+                                assigndata.mempk
+                            )
+
+                        }}>
+                            View Map</button></td>                        
+                    </tr>
+                )
+            })}    
     return (
         <div className="assignment">
             <div className="assignment-work">
                 <div className="inpt-box"><button  onClick={(event)=>{
                
                 this.assigncaremanagers()
-            }}>Assign Members</button></div>
-                <div className="assignment-work">
+            }}>Assign Members</button>          
+            </div>
+            <div className="selectmanager">
+            <label>Select Care Manager</label>
+            <Select   id="caremanager" placeholder='SELECT CARE MANAGER'
+                value={this.cmselect}
+                onChange={this.handleChange}
+                options={this.state.selectcaremanagerlist}
+                >Select Model</Select>
+            </div>
+            <div className="inpt-box">
+            <button onClick={(event)=>{
+                this.getcaremanagerassignment(this.state.cmselect)
+                
+                this.onClickHandler(
+                    // document.getElementById('managerName').value
+                    this.state.cmselect
+                )
+                
+            }}>View Assignment</button>
+            </div>
+                {/* <div className="assignment-work">
                 <div className="inpt-box">
                     <input id="managerName" placeholder="manager"></input>
                 </div>
                 <div className="inpt-box">
                     {bttn}
                 </div>
-                </div>
+                </div> */}
                 
             </div>
             <div className="assignment-container">
+                <div className="assignment-column">
+                    <p>TOTAL ASSIGNED: 0</p>
+                </div>
                 <div>
-                    some text here
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat 
-                        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
+                    <p>TOTAL ASSIGNED FOR ZIPCODE 11207: 0</p>
                 </div>
                 <div className="assignment-column">
                     <div className="assignment-data" >
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat 
-                        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
+                    {outputtable}
+                    <table className="blueTable">
+                    <tbody>
+                    <tr>
+                    <th>Care Manager</th>
+                    <th>Member Last Name</th>
+                    <th>Member First Name</th>
+                    <th>Member Address</th>
+                    <th>Member City</th>
+                    <th>Member State</th>
+                    <th>Member Zip</th>
+                    <th>View</th></tr>
+                    {tdetail}
+                    </tbody>
+                        
+                    
+                    </table>
+
                     </div>   
                     {output}
                 </div>

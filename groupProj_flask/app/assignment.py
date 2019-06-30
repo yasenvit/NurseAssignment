@@ -18,7 +18,7 @@ class Assignment:
                 for p in range(maxpriority[0]+1):
                     # creating SQL with priority parameter to capture zipcodes and case loads
                     SQL="""select cmz.*,cm.cm_maxcaseload from caremanager cm join caremanagerzip cmz on cm.cmpk=cmz.cmpk
-                     where cmz.priority={}""".format(p)
+                     where cmz.priority={} and cm.active_status=1""".format(p)
                     cur.execute(SQL)
 
                     #capturing caremanagers and thier Priority Zip Codes in a datatframe to loop through
@@ -34,6 +34,7 @@ class Assignment:
                          where cmz.cmpk={0}""".format(cmdict['cmpk'])
                         cur.execute(SQL)
                         zipcount=cur.fetchone()[0]
+                        # print(cmdict['cm_maxcaseload'])
                         zipdivcount=cmdict['cm_maxcaseload']/zipcount
 
                         # creating matches between member information and care manager

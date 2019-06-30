@@ -2,7 +2,7 @@ import time
 import random
 import string
 import datetime
-from groupProj_flask.app.orm import ORM
+from app.orm import ORM
 
 class Caremanagermember(ORM):
     fields = ["cmpk","mempk"]
@@ -41,6 +41,14 @@ class Caremanagermember(ORM):
         frominfo="from caremanagermember cmm join member mem on cmm.mempk=mem.mempk join caremanager cm on cmm.cmpk=cm.cmpk"
         values = (self.pk, )
         return Caremanagermember.select_many_query(fieldinfo,where,frominfo,values)
+
+    def get_results_query_single_member(self):
+        """ return a list of each Member object for this user """
+        where = "WHERE cmm.cmpk = ? and cmm.mempk=?"
+        fieldinfo="mem.*,cm.*"
+        frominfo="from caremanagermember cmm join member mem on cmm.mempk=mem.mempk join caremanager cm on cmm.cmpk=cm.cmpk"
+        values = (self.pk, self.mempk)
+        return Caremanagermember.select_many_query(fieldinfo,where,frominfo,values)
     
     def get_allresults(self):
         """ return a list of each Member object for this user """
@@ -69,3 +77,16 @@ class Caremanagermember(ORM):
         "memberzip":self.mem_zip,
         "memberlatitude":self.mem_latitude,
         "memberlongitude":self.mem_longitude}
+
+    def jsonquerysingle(self):
+        return {"cmpk":self.cmpk,"mempk":self.mempk,
+        "caremanagerfirstname":self.cm_firstname,
+        "caremanagerlastname":self.cm_lastname,
+        "mem_firstname":self.mem_firstname,
+        "mem_lastname":self.mem_lastname,
+        "mem_address":self.mem_address,
+        "mem_city":self.mem_city,
+        "mem_state":self.mem_state,
+        "mem_zip":self.mem_zip,
+        "mem_latitude":self.mem_latitude,
+        "mem_longitude":self.mem_longitude}

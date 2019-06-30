@@ -8,7 +8,7 @@ function Map(props) {
     console.log("Map", props.testProp)
     return(
       <GoogleMap
-        defaultZoom={13}
+        defaultZoom={12}
         defaultCenter={{lat:40.650104, lng:-73.949582}}
       >
         {props.members.map((member) => (
@@ -34,7 +34,10 @@ function Map(props) {
               }}
               >
 
-              <div>{selectedC.mem_address}</div>
+              {/* <div>{selectedC.mem_address}</div> */}
+              <div>{selectedC.mem_firstname} {selectedC.mem_lastname} <br/> {selectedC.mem_address} <br/>
+              {selectedC.mem_city}, {selectedC.mem_state} {selectedC.mem_zip}
+              </div>
             </InfoWindow>
           )}
         </GoogleMap>
