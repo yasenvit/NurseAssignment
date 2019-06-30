@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import {GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow} from 'react-google-maps';
-import mapStyles from './mapStyles'
 import WrappedMap from './Map';
 
 
 export default class Display extends Component{
   render() {
-console.log(this.props.members)
+
   return (
   <div style={{width:'50vw', height:'80vh'}}>
     

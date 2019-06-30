@@ -67,6 +67,8 @@ roundTo(1234.56, -2);//=> 1200)
 ---material UI---
      npm install @material-ui/core
      npm install material-ui@latest
+---react select
+    npm install --save react-select
 
 
 

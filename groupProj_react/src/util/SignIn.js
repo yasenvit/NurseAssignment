@@ -1,4 +1,5 @@
 import React from 'react';
+import {BrowserRouter, Route} from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,7 +13,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import teal from '@material-ui/core/colors/teal';
+import SignUp from './SignUp';
 
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -39,53 +40,22 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SignUp(props) {
-  const greencolor = teal[500]; // #009688
+export default function SignIn(props) {
   const classes = useStyles();
-  const { credencials, signupf, handleChange, signinLink } = props;
-  let buttonOutput = (<div></div>)
-  if(credencials.userlogin && credencials.userpassword === credencials.userpasswordRetypped
-    && credencials.userpassword.length>5) {
-    buttonOutput = (
-      <Button
-      /*type="submit"*/
-      fullWidth
-      variant="contained"
-      color={greencolor}
-      className={classes.submit}
-      onClick={(e)=>{signupf(credencials.userlogin, credencials.userpassword)}}
-    >
-      Sign Up
-    </Button>
-    )
-  } else {
-    buttonOutput = (
-    <Button
-      fullWidth
-      variant="contained"
-      color={greencolor}
-      className={classes.submit}
-      onClick={(e)=>{signupf(credencials.userlogin, credencials.userpassword)}}
-      disabled={true}
-    >
-      Sign Up
-    </Button>
-    )
-  }
-
+  const { credencials, loginf, handleChange, signupLink } = props;
   return (
     <Container component="main" maxWidth="xs">
       <br />
       <Typography component="h6" variant="h6">
           Nurse Assignment Tools
-      </Typography>
-      <CssBaseline />
-        <div className={classes.paper}>
+        </Typography>
+     <CssBaseline />
+      <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign up
+          Sign in
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
@@ -106,31 +76,33 @@ export default function SignUp(props) {
             required
             fullWidth
             name="password"
-            label="Password (min 6 symbols)"
+            label="Password"
             type="password"
             id="password"
             autoComplete="current-password"
             onChange={handleChange('userpassword')}
+           />
+          <FormControlLabel
+            control={<Checkbox value="remember" color="primary" />}
+            label="Remember me"
           />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
+          <Button
+            /*type="submit"*/
             fullWidth
-            name="password"
-            label="Re-enter password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            onChange={handleChange('userpasswordRetypped')}
-          />
-        {buttonOutput}
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+            onClick={(e)=>{loginf(credencials.userlogin, credencials.userpassword)}}
+          >
+            Sign In
+          </Button>
+
         </form>
       </div>
       <Box mt={2}>
-        <Link href={signinLink} variant="body2">
-          {"Have an account? Sign In"}
-          </Link>
+        <Link href={signupLink} variant="body2">
+          {"Don't have an account? Sign Up"}
+        </Link>
       </Box>
     </Container>
   );

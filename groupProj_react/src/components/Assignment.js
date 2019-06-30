@@ -138,7 +138,7 @@ export default class Assignment extends Component {
     }
     
     render() {
-        console.log("NewManager Props:",this.props.newManager)
+        console.log("NewAssessor Props:",this.props.newAssessor)
  
     let output = (<div></div>)
     let bttn = (<button></button>)

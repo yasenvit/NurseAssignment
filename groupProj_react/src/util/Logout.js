@@ -1,13 +1,24 @@
-import React,{Component} from 'react';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
-class Logout extends Component {
-    render() {
-        return (
-            <div className="Logout">
-                <button className="myButton" onClick={this.props.clicked}>Log out</button>
-            </div>
-        )
-    }
+const useStyles = makeStyles(theme => ({
+  button: {
+    margin: theme.spacing(1),
+  },
+  input: {
+    display: 'none',
+  },
+}));
+
+export default function OutlinedButtons(props) {
+  const classes = useStyles();
+  const { clicked } = props;
+  return (
+    <div>
+     <Button onClick={clicked} size="small"  variant="outlined" color="secondary" className={classes.button}>
+      logout
+     </Button>
+    </div>
+  );
 }
-
-export default Logout

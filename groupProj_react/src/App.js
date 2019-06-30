@@ -1,33 +1,28 @@
 import React, { Component } from 'react';
 import {BrowserRouter, Route, Redirect} from 'react-router-dom';
-import {Link} from 'react-router-dom'
 import isloggedin from './util/isloggedin';
-import Login from './util/Login';
+import SignIn from './util/SignIn';
 import logoutf from './util/logoutf';
 import SignUp from './util/SignUp';
 import apiCall from './util/apiCall';
-import Home from './components/Home';
+import Nav from './components/Nav';
 import './App.css'
 
 class App extends Component {
   state={
+    userlogin: null,
+    userpassword: "",
+    userpasswordRetypped: "",
     members:null,
     refresh:""
   }
-  currentTime() {
-    this.setState ({
-      time:new Date()
-    })
-  }
 
-  signup = (username, password) => {
-    console.log(username, password)
+  signupf = (username, password) => {
     const promise = apiCall('/api/signup', 'post', {
       "username": username,
       "password": password
     })
     promise.then(blob=>blob.json()).then(json=>{
-      console.log("api key: ",json.api_key)
       if (json.api_key !== undefined) {
         window.sessionStorage.setItem("apikey", json.api_key)
         window.sessionStorage.setItem("username", json.username)
@@ -46,9 +41,12 @@ class App extends Component {
     })
   }
 
+  handleChange = input => e => {
+    this.setState({ [input]: e.target.value });
+  };
+
   loginf = (username, password) => {
-    console.log("login func credencials input:", username, password)
-    const promise = apiCall('/api/get_api_key', 'post', {
+     const promise = apiCall('/api/get_api_key', 'post', {
       "username": username,
       "password": password
     })
@@ -76,54 +74,27 @@ class App extends Component {
     this.setState({refresh: "loggedout"})
   }
   render () {
-
-    let appLogin = []
+    const { userlogin, userpassword, userpasswordRetypped } = this.state;
+    const credencials = {userlogin, userpassword, userpasswordRetypped};
     let routeList = []
-    let appSignUp = []
-    let output = [<div className='empty'></div>]
-    
+    let signupLink ="/signup"
+    let signinLink ="/"
+
     if (isloggedin()){
-      output = (
-        <div className="isLoggedIn">
-          <Home clicked={this.logoutClick}/>
-        </div>
-      )
-    } else {
-      appLogin=[<Link to="/login" style={{color:"brown", textDecoration: "none"}}>Sign in</Link>]
-      appSignUp=[<Link to="/signup" style={{color:"brown", textDecoration: "none"}} >Sign up</Link>]
-      routeList=[
-        <Route exact path="/signup" render={(props)=><SignUp {...props} signupfunc={this.signup} />}/>,
-        <Route path="/login" render={(props)=><Login {...props} loginfunc={this.loginf} />} />  
-      ]
-      output= [
-        <div className="body-box">
-          <div className="header">
-            <div className="logs-block"></div>
-            <div className="header-center">Welcome to Nurse Assignment Tool</div>
-            <div className="logs-block">
-              <div>
-              {appSignUp}
-              </div>
-              <div>
-                {appLogin}
-              </div>
-            </div>
-          </div>
-        <div className="output-container">
-          {routeList}
-        </div>
-      </div>
-      ]
+      routeList=(<Nav clicked={this.logoutClick}/>)
+      } else {
+        routeList=[
+          <Route exact path="/signup" render={(props)=><SignUp {...props} credencials={credencials} handleChange={this.handleChange} signupf={this.signupf} signinLink={signinLink}/>}/>,
+          <Route exact path="/" render={(props)=><SignIn {...props} credencials={credencials} handleChange={this.handleChange} loginf={this.loginf} signupLink={signupLink}/>} />
+        ]
     }
-    
     return (
       <BrowserRouter>
         <div className="App">
-          {output}
+          {routeList}
         </div>
       </BrowserRouter>
     )
   }
 }
-
 export default App;

@@ -1,11 +1,8 @@
 import {GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow} from 'react-google-maps';
 import React, { useState } from 'react';
-import mapStyles from './mapStyles';
-
 
 function Map(props) {
     const [selectedC, setSelectedC] = useState(null);
-    console.log("Map", props.testProp)
     return(
       <GoogleMap
         defaultZoom={12}
