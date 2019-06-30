@@ -12,6 +12,29 @@ export class FormUserDetails extends Component {
 
   render() {
     const { values, handleChange } = this.props;
+    let showButtons = (<div></div>)
+    if(values.firstName.length <2 || values.lastName.length <2 || values.zipcodes.length <5){
+      showButtons = (
+        <RaisedButton
+        label="Continue"
+        primary={true}
+        style={styles.button}
+        onClick={this.continue}
+        disabled={true}
+      />       
+      )
+    } else {
+      showButtons = (
+        <RaisedButton
+        label="Continue"
+        primary={true}
+        style={styles.button}
+        onClick={this.continue}
+        disabled={false}
+      />
+      )      
+    }
+  
     return (
       <MuiThemeProvider>
         <React.Fragment>
@@ -44,12 +67,7 @@ export class FormUserDetails extends Component {
             defaultValue={values.maxCasesLoad}
           />
           <br />
-          <RaisedButton
-            label="Continue"
-            primary={true}
-            style={styles.button}
-            onClick={this.continue}
-          />
+          {showButtons}
         </React.Fragment>
       </MuiThemeProvider>
     );

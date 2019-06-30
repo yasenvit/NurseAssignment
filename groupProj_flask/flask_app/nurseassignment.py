@@ -125,7 +125,6 @@ def signUp():
         return jsonify(APPERROR), 500
     new = Account()
     new.signUp(username, password)
-    new.save()
     return jsonify({
         'username': new.username,
         'api_key': new.api_key

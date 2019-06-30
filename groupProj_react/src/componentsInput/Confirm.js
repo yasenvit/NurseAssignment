@@ -6,27 +6,23 @@ import RaisedButton from 'material-ui/RaisedButton';
 import apiCall from '../util/apiCall';
 
 export class Confirm extends Component {
-
   getRecord(object) {
     const endpoint = `/api/${window.sessionStorage.getItem('apikey')}/newcaremanager`
     const promise = apiCall(endpoint, 'post', {
         firstname: object.firstName,
         lastname: object.lastName,
         zipcode: object.zipcodes,
-        maxcaseload: object.maxCasesLoad
+        maxcaseload: object.maxCasesLoad,
       })
     promise.then(blob=>{
-        alert("new assessor has been created successfully")
+      this.props.getStatus({status: blob.status})
     })
   }
-
   continue = e => {
-     e.preventDefault();
-    // PROCESS FORM //
+    e.preventDefault();
     this.getRecord(this.props.values)
-    this.props.nextStep();
-  };
-
+    this.props.nextStep()
+    };
   back = e => {
     e.preventDefault();
     this.props.prevStep();
@@ -36,7 +32,7 @@ export class Confirm extends Component {
     const {
       values: { firstName, lastName, zipcodes, maxCasesLoad }
     } = this.props;
-
+    
     return (
       <MuiThemeProvider>
         <React.Fragment>
@@ -47,7 +43,7 @@ export class Confirm extends Component {
             <ListItem primaryText="Prefered Zipcodes" secondaryText={zipcodes} />
             <ListItem primaryText="Maximum cases" secondaryText={maxCasesLoad} />
           </List>
-              
+             
           <RaisedButton
             label="Back"
             primary={false}
@@ -65,7 +61,6 @@ export class Confirm extends Component {
     );
   }
 }
-
 const styles = {
   button: {
     margin: 15

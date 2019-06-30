@@ -10,7 +10,8 @@ export class UserForm extends Component {
     firstName: '',
     lastName: '',
     zipcodes: '',
-    maxCasesLoad: ''
+    maxCasesLoad: '',
+    blobStatus: 0
   };
 
   // Proceed to next step
@@ -40,7 +41,11 @@ export class UserForm extends Component {
   isClicked = () => {
     this.props.updateAssessor(this.state)
   }
-
+  getStatus = (blobStatus) => {
+    this.setState({
+      blobStatus: blobStatus.status
+    })
+  }
   // Handle fields change
   handleChange = input => e => {
     this.setState({ [input]: e.target.value });
@@ -66,12 +71,14 @@ export class UserForm extends Component {
             nextStep={this.nextStep}
             prevStep={this.prevStep}
             values={values}
+            getStatus={this.getStatus}
           />
         );
       case 3:
         return <Success 
         backToMain = {this.backToMain}
         isClicked = {this.isClicked}
+        blobStatus = {this.state.blobStatus}
         />;
     }
   }

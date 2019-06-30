@@ -2,7 +2,7 @@ import time
 import random
 import string
 import datetime
-from groupProj_flask.app.orm import ORM
+from app.orm import ORM
 
 class Caremanagermember(ORM):
     fields = ["cmpk","mempk"]
