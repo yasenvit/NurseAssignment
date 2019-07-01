@@ -23,6 +23,7 @@ class Caremanagermember(ORM):
         self.mem_zip=None
         self.mem_longitude=None
         self.mem_latitude=None
+        self.countof=None
     
 
        
@@ -40,6 +41,14 @@ class Caremanagermember(ORM):
         fieldinfo="mem.*,cm.*"
         frominfo="from caremanagermember cmm join member mem on cmm.mempk=mem.mempk join caremanager cm on cmm.cmpk=cm.cmpk"
         values = (self.pk, )
+        return Caremanagermember.select_many_query(fieldinfo,where,frominfo,values)
+    
+    def get_assigned_totals_query(self):
+        """ return a list of each Member object for this user """
+        where = "WHERE cm.active_status=1 and cmm.cmpk=? group by cmm.cmpk"
+        fieldinfo="cmm.cmpk,count(*) countof"
+        frominfo="from caremanagermember cmm join caremanager cm on cmm.cmpk=cm.cmpk"
+        values = (self.pk,)
         return Caremanagermember.select_many_query(fieldinfo,where,frominfo,values)
 
     def get_results_query_single_member(self):
@@ -64,6 +73,9 @@ class Caremanagermember(ORM):
 
     def json(self):
         return {"cmpk":self.cmpk,"mempk":self.mempk}
+
+    def jsontotalassigned(self):
+        return {"assignedtotal":self.countof}
 
     def jsonquery(self):
         return {"cmpk":self.cmpk,"mempk":self.mempk,

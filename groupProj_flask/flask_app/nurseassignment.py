@@ -54,6 +54,19 @@ def caremanagersinglememberinfo():
     json_list=[cmr.jsonquerysingle() for cmr in cmresults]
     return jsonify({"output":json_list})
 
+@app.route('/api/caremanagermemberassignedtotals',methods=['POST'])
+def caremanagermemberassignedtotals():   
+    
+    if not request.json or 'cmpk' not in request.json:
+        return jsonify(BADREQUEST),400
+    
+    cm=caremanagermember.Caremanagermember()   
+    cm.pk=request.json['cmpk']
+    cmresults=cm.get_assigned_totals_query()
+
+    json_list=[cmr.jsontotalassigned() for cmr in cmresults]
+    return jsonify({"output":json_list})
+
 @app.route('/api/caremanagerinfo',methods=['POST'])
 def caremanagerinfo():
     if not request.json or 'cmpk' not in request.json:
@@ -74,6 +87,8 @@ def caremanagerallinfo():
 
     json_list=[cmr.json() for cmr in cmresults]
     return jsonify({"output":json_list})
+
+
 
 @app.route('/api/<api_key>/newcaremanager',methods=['POST'])
 def newcaremanager(api_key):

@@ -19,7 +19,8 @@ export default class Assignment extends Component {
         populatelistflag:true,
         assignedlist:null,
         fileresponse:null,
-        singlemember:[]
+        singlemember:[],
+        assignedtotals:null
     }
     /*Eric Hall's Added functions on 06/27/2019 */
     assigncaremanagers=()=>{
@@ -50,7 +51,22 @@ export default class Assignment extends Component {
                })
     
         } 
-
+    getcaremanagerassignmenttotals=(cmpk)=>{
+            const endpoint = "/api/caremanagermemberassignedtotals"
+            const promise = apiCall(endpoint,'POST',{"cmpk":cmpk})
+                console.log('in api call function')
+                promise.then(blob=>blob.json()).then(json=>{
+                console.log('inside function')
+                console.log(json)
+                    this.setState({
+                        assignedtotals:json.output[0]['assignedtotal'],
+                        
+                    })
+                    console.log('assigned totals')
+                    console.log(this.state.assignedtotals)
+                   })
+        
+            }     
     getcaremanagers=()=>{
         const endpoint = "/api/caremanagerallinfo"
         const promise = apiCall(endpoint)
@@ -191,7 +207,14 @@ export default class Assignment extends Component {
         }
         }}
         console.log(this.state.selectcaremanagerlist)
-        let outputtable=(<div><h1>Data Results:</h1></div>) 
+        let outputtable=(<div className="searchbox"><label>Search Data:</label><input id="searchtext" placeholder="SEARCH DATA"></input></div>)
+        let totalassignedoutput=(<p></p>) 
+        if(this.state.assignedtotals==null){
+            totalassignedoutput=(<p><h3>TOTAL ASSIGNED: 0</h3></p>) 
+        } else {
+            totalassignedoutput=(<p><h3>TOTAL ASSIGNED: {this.state.assignedtotals}</h3></p>) 
+        }
+        
         let theader=(<div></div>) 
         let tdetail=null 
         if (this.state.fileresponse=='Upload Successful'){
@@ -224,6 +247,7 @@ export default class Assignment extends Component {
                                 assigndata.cmpk,
                                 assigndata.mempk
                             )
+                            
 
                         }}>
                             View Map</button></td>                        
@@ -249,7 +273,8 @@ export default class Assignment extends Component {
             <div className="inpt-box">
             <button onClick={(event)=>{
                 this.getcaremanagerassignment(this.state.cmselect)
-                
+                this.getcaremanagerassignmenttotals(this.state.cmselect)
+                console.log('hit button')
                 this.onClickHandler(
                     // document.getElementById('managerName').value
                     this.state.cmselect
@@ -269,10 +294,10 @@ export default class Assignment extends Component {
             </div>
             <div className="assignment-container">
                 <div className="assignment-column">
-                    <p>TOTAL ASSIGNED: 0</p>
+                    {totalassignedoutput}
                 </div>
-                <div>
-                    <p>TOTAL ASSIGNED FOR ZIPCODE 11207: 0</p>
+                <div className="assignment-column">
+                    <button>View Zip Code Allocation Statistics</button>
                 </div>
                 <div className="assignment-column">
                     <div className="assignment-data" >

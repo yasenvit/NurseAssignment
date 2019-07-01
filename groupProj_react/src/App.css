@@ -67,6 +67,27 @@
   width: 40%;
   
 }
+
+.searchbox{
+  box-sizing: border-box;
+  background-color: lightskyblue;
+  padding: 3px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start; 
+  align-items: stretch;
+}
+
+.searchbox input{
+  height: 40%;
+  width:40%;
+}
+
+.searchbox label{
+  font-weight: bold;
+  padding-right: 12px;
+}
+
 table.blueTable {
   border: 1px solid #1C6EA4;
   background-color: #EEEEEE;
@@ -145,7 +166,8 @@ table.blueTable tfoot .links a{
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(191, 226, 192);
+  /* background-color: rgb(191, 226, 192); */
+  background-color: rgb(68, 149, 177);
 }
 .home-output {
   box-sizing: border-box;
@@ -170,14 +192,14 @@ table.blueTable tfoot .links a{
 .assignment-container {
   box-sizing: border-box;
   height: 100%;
-  background-color: #4CAF50;
+  background-color: lightskyblue;
   padding: 5px;
   display: flex;
   flex-direction: column;
 }
 .assignment-column {
   box-sizing: border-box;
-  background-color: brown;
+  background-color: whitesmoke;
   padding: 5px;
   display: flex;
   flex-direction: row;
@@ -187,14 +209,14 @@ table.blueTable tfoot .links a{
 .assignment-map {
   float: left;
   box-sizing: border-box;
-  background-color: green;
+  background-color: lightskyblue;
   padding: 5px;
   justify-content: flex-start;
   align-items: stretch;
 }
 .assignment-data {
   float: right;
-  background-color: yellow;
+  background-color: lightskyblue;
   height: 100%;
 }
 .inpt-box {
@@ -206,7 +228,8 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color:  rgb(92, 185, 95);
+  /* background-color:  rgb(92, 185, 95); */
+  background-color:  rgb(68, 149, 177);
 }
 li {
   float: left;
