@@ -22,25 +22,25 @@ export default class Nav extends Component {
   render() {
     let appLogout= [<Logout clicked={this.props.clicked}/>]
     let routeList = [
-      <Route exact path="/" component={Home} />,
+      <Route exact path="/home" component={Home} />,
       <Route exact path="/assessor"  render={(props)=><Assessor newAssessor={this.state.newAssessor} updateAssessor={this.updateAssessor} {...props} />}/>,
       <Route exact path="/assignment"  render={(props)=> <Assignment newAssessor={this.state.newAssessor} {...props} />} />,
     ]
     return (
-      <div className="home-container">
-        <div className="home-header">
-          <div>
-            <ul>
-              <li><Link onClick={this.componentWillUnmount} to="/">HOME</Link></li>
-              <li><Link onClick={this.componentWillUnmount} to="/assessor">CARE MANAGER PROFILE</Link></li>
-              <li><Link onClick={this.componentWillUnmount} to="/assignment">CARE MANAGER ASSIGNMENT</Link></li>
-            </ul> 
+      <div className="nav-container">
+        <div className="nav-header">
+          <div className="navbox">
+            
+              <div className="tagbox"><Link onClick={this.componentWillUnmount} to="/home">home</Link></div>
+              <div className="tagbox"><Link onClick={this.componentWillUnmount} to="/assessor">care manager profile</Link></div>
+              <div className="tagbox"><Link onClick={this.componentWillUnmount} to="/assignment">care manager assignment</Link></div>
+            
           </div>
           <div style={{marginRight:"20px"}}>
             {appLogout}
           </div>
         </div>
-        <div className="home-output">
+        <div className="nav-output">
           {routeList}
         </div>
       </div>

@@ -10,7 +10,6 @@ import './App.css'
 
 class App extends Component {
   state={
-    homelink: "/",
     userlogin: null,
     userpassword: "",
     userpasswordRetypped: "",
@@ -82,9 +81,11 @@ class App extends Component {
     let routeList = []
     let signupLink ="/signup"
     let signinLink ="/"
-
-    if(isloggedin()){
-      routeList=(<Nav clicked={this.logoutClick}/>)
+/*ORIGINAL*/
+if(isloggedin()){
+      routeList=[
+        <Route exact path="/home" render={(props)=><Nav {...props} clicked={this.logoutClick}/>}/>,
+      ]
       } else {
         routeList=[
           <Route exact path="/signup" render={(props)=><SignUp {...props} credencials={credencials} handleChange={this.handleChange} signupf={this.signupf} signinLink={signinLink}/>}/>,
