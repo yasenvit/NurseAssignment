@@ -36,7 +36,7 @@ export class Success extends Component {
       )
     } else {
       message = (
-        <h5>registration error</h5>
+        <h5>Registration error, please check form</h5>
       )
       buttons = (
         <div>

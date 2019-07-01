@@ -49,14 +49,14 @@ export default function SignUp(props) {
     buttonOutput = (
       <Button
       /*type="submit"*/
-      fullWidth
-      variant="contained"
-      color={greencolor}
-      className={classes.submit}
-      onClick={(e)=>{signupf(credencials.userlogin, credencials.userpassword)}}
-    >
+        fullWidth
+        variant="contained"
+        color={greencolor}
+        className={classes.submit}
+        onClick={(e)=>{signupf(credencials.userlogin, credencials.userpassword)}}
+      >
       Sign Up
-    </Button>
+      </Button>
     )
   } else {
     buttonOutput = (
@@ -80,7 +80,7 @@ export default function SignUp(props) {
           Nurse Assignment Tools
       </Typography>
       <CssBaseline />
-        <div className={classes.paper}>
+      <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
@@ -96,8 +96,8 @@ export default function SignUp(props) {
             id="login"
             label="Login"
             name="login"
-            autoComplete="login"
-            autoFocus
+            autoComplete='off'
+            /*autoFocus*/
             onChange={handleChange('userlogin')}
           />
           <TextField
@@ -109,7 +109,7 @@ export default function SignUp(props) {
             label="Password (min 6 symbols)"
             type="password"
             id="password"
-            autoComplete="current-password"
+            autoComplete='off'
             onChange={handleChange('userpassword')}
           />
           <TextField
@@ -121,7 +121,7 @@ export default function SignUp(props) {
             label="Re-enter password"
             type="password"
             id="password"
-            autoComplete="current-password"
+            autoComplete="off"
             onChange={handleChange('userpasswordRetypped')}
           />
         {buttonOutput}

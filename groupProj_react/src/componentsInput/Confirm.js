@@ -9,11 +9,11 @@ export class Confirm extends Component {
   getRecord(object) {
     const endpoint = `/api/${window.sessionStorage.getItem('apikey')}/newcaremanager`
     const promise = apiCall(endpoint, 'post', {
-        firstname: object.firstName,
-        lastname: object.lastName,
-        zipcode: object.zipcodes,
-        maxcaseload: object.maxCasesLoad,
-      })
+      firstname: object.firstName,
+      lastname: object.lastName,
+      zipcode: object.zipcodes,
+      maxcaseload: object.maxCasesLoad,
+    })
     promise.then(blob=>{
       this.props.getStatus({status: blob.status})
     })
@@ -22,7 +22,7 @@ export class Confirm extends Component {
     e.preventDefault();
     this.getRecord(this.props.values)
     this.props.nextStep()
-    };
+  };
   back = e => {
     e.preventDefault();
     this.props.prevStep();
@@ -41,7 +41,7 @@ export class Confirm extends Component {
             <ListItem primaryText="First Name" secondaryText={firstName} />
             <ListItem primaryText="Last Name" secondaryText={lastName} />
             <ListItem primaryText="Prefered Zipcodes" secondaryText={zipcodes} />
-            <ListItem primaryText="Maximum cases" secondaryText={maxCasesLoad} />
+            <ListItem primaryText="Maximum cases" secondaryText={parseInt(maxCasesLoad)>0 && parseInt(maxCasesLoad)<151?maxCasesLoad:150} />
           </List>
              
           <RaisedButton

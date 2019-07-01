@@ -66,11 +66,14 @@ def caremanagerallinfo():
 def newcaremanager(api_key):
     if not request.json or 'lastname' not in request.json or 'firstname' not in request.json or 'zipcode' not in request.json:
         return jsonify(BADREQUEST),400
-    
+    for i in request.json['zipcode'].split(','):
+        if i.isdigit()==False or len(i)!=5:
+            return jsonify(BADREQUEST),400
+
     cm=caremanager.Caremanager()    
     cm.cm_firstname=request.json['firstname']  
     cm.cm_lastname=request.json['lastname']
-    cm.cm_maxcaseload=request.json['maxcaseload']
+    cm.cm_maxcaseload=int(request.json['maxcaseload'])
     cm.save()  
 
     maxpk=cm.pk

@@ -10,6 +10,7 @@ import './App.css'
 
 class App extends Component {
   state={
+    homelink: "/",
     userlogin: null,
     userpassword: "",
     userpasswordRetypped: "",
@@ -71,7 +72,9 @@ class App extends Component {
   logoutClick=(event)=>{
     event.preventDefault()
     logoutf()
-    this.setState({refresh: "loggedout"})
+    this.setState({
+      refresh: "loggedout",
+        })
   }
   render () {
     const { userlogin, userpassword, userpasswordRetypped } = this.state;
@@ -80,7 +83,7 @@ class App extends Component {
     let signupLink ="/signup"
     let signinLink ="/"
 
-    if (isloggedin()){
+    if(isloggedin()){
       routeList=(<Nav clicked={this.logoutClick}/>)
       } else {
         routeList=[
