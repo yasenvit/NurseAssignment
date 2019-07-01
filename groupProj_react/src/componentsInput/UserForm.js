@@ -55,7 +55,7 @@ export class UserForm extends Component {
     const { step } = this.state;
     const { firstName, lastName, zipcodes, maxCasesLoad } = this.state;
     const values = { firstName, lastName, zipcodes, maxCasesLoad };
-
+    console.log(values)
     switch (step) {
       case 1:
         return (

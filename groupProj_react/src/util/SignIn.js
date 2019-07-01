@@ -47,9 +47,9 @@ export default function SignIn(props) {
     <Container component="main" maxWidth="xs">
       <br />
       <Typography component="h6" variant="h6">
-          Nurse Assignment Tools
-        </Typography>
-     <CssBaseline />
+        Nurse Assignment Tools
+      </Typography>
+      <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
@@ -66,8 +66,8 @@ export default function SignIn(props) {
             id="login"
             label="Login"
             name="login"
-            autoComplete="login"
-            autoFocus
+            autoComplete='off'
+            /*autoFocus*/
             onChange={handleChange('userlogin')}
           />
           <TextField
@@ -79,15 +79,11 @@ export default function SignIn(props) {
             label="Password"
             type="password"
             id="password"
-            autoComplete="current-password"
+            autoComplete='off'
             onChange={handleChange('userpassword')}
            />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
+  
           <Button
-            /*type="submit"*/
             fullWidth
             variant="contained"
             color="primary"
@@ -96,7 +92,6 @@ export default function SignIn(props) {
           >
             Sign In
           </Button>
-
         </form>
       </div>
       <Box mt={2}>

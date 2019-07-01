@@ -40,14 +40,14 @@ export class FormUserDetails extends Component {
         <React.Fragment>
           <AppBar title="Enter Assessor" />
           <TextField
-            hintText="Enter Your First Name"
+            hintText="Enter First Name"
             floatingLabelText="First Name"
             onChange={handleChange('firstName')}
             defaultValue={values.firstName}
           />
           <br />
           <TextField
-            hintText="Enter Your Last Name"
+            hintText="Enter Last Name"
             floatingLabelText="Last Name"
             onChange={handleChange('lastName')}
             defaultValue={values.lastName}
@@ -61,7 +61,7 @@ export class FormUserDetails extends Component {
           />
           <br />
           <TextField
-            hintText="Maximum cases loading"
+            hintText="Maximum cases (up to 150)"
             floatingLabelText="Enter maximum cases"
             onChange={handleChange('maxCasesLoad')}
             defaultValue={values.maxCasesLoad}

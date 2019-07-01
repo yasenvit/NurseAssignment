@@ -6,7 +6,6 @@ import Assessor from './Assessor'
 import Home from './Home'
 import '../App.css';
 
-
 export default class Nav extends Component {
   state = {
     members: [],
@@ -23,7 +22,7 @@ export default class Nav extends Component {
   render() {
     let appLogout= [<Logout clicked={this.props.clicked}/>]
     let routeList = [
-      <Route exact path = "/" component={Home} />,
+      <Route exact path="/" component={Home} />,
       <Route exact path="/assessor"  render={(props)=><Assessor newAssessor={this.state.newAssessor} updateAssessor={this.updateAssessor} {...props} />}/>,
       <Route exact path="/assignment"  render={(props)=> <Assignment newAssessor={this.state.newAssessor} {...props} />} />,
     ]
