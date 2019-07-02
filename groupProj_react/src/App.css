@@ -149,31 +149,31 @@ table.blueTable tfoot .links a{
   padding: 2px 8px;
   border-radius: 5px;
 }
-/***************************home*******************************/    
+/***************************nav*******************************/    
 .nav {
   height: 10%;
 }
-.home-container {
+.nav-container {
   box-sizing: border-box;
   height:100%;
   width: 100%;
 }
-.home-header {
+.nav-header {
   box-sizing: border-box;
   padding: 0px;
-  height: 10%;  
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  /* background-color: rgb(191, 226, 192); */
+  align-items: stretch;
   background-color: rgb(68, 149, 177);
 }
-.home-output {
+.nav-output {
   box-sizing: border-box;
-  height: 80%;
+  height: 85%;
   width: 100%;
 }
+
+/***********************assignment*****************************/
 .assignment {
   box-sizing: border-box;
   background-color: skyblue;
@@ -223,27 +223,66 @@ table.blueTable tfoot .links a{
   padding: 2px;
 }
 /********************************************************************/
+.navbox {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  align-items: stretch;
+}
+div a {  
+  display: flex;
+  text-transform: uppercase;
+  padding:0.75rem 0.5rem 0rem 0.5rem;
+  text-decoration: none;
+  color: lightgray;
+}
+div a:hover {
+  /*color: white;*/
+  /*background-color:#00bcd4*/
+}
+.tagbox {
+  box-sizing: border-box;
+  display: flex;
+  align-items: stretch;
+  text-align: center;
+  border-right: 1px solid #26c6da;
+  height: 100%;
+}
+
+
+
+
 ul {
+  box-sizing: border-box;
+  height: 100%;
+  align-items: stretch;
+  text-align: center;
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  /* background-color:  rgb(92, 185, 95); */
-  background-color:  rgb(68, 149, 177);
+  background-color:  rgb(92, 185, 95);
+  /*background-color:  rgb(68, 149, 177);*/
 }
 li {
+  box-sizing: border-box;
   float: left;
+  align-items: stretch;
+  text-align: center;
   border-right: 1px solid rgb(248, 240, 196);
+  height: 100%;
+  background-color: brown;
 }
+
 li a {  
   display: block;
-  color: rgb(46, 44, 44);
-  text-align: center;
-  padding: 5px 7px;
+  font-size: small;
+  padding: 5px;
   text-decoration: none;
-  color: white;
 }
 li a:hover {
+  height: 30px;
+  text-align: center;
   background-color: rgb(163, 233, 204);
   color: rgb(5, 133, 5)
 }
