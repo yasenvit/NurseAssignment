@@ -273,9 +273,6 @@ export default class Assignment extends Component {
             tdetail=this.state.assignedlist.map(assigndata=>{
 
                 return(
-
-
-                    
                     <tr>
                         <td>{assigndata.caremanagerfirstname} {assigndata.caremanagerlastname}</td>
                         <td>{assigndata.mem_lastname}</td>

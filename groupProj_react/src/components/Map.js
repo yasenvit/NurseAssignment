@@ -23,8 +23,8 @@ function Map(props) {
         {selectedC && (
             <InfoWindow
               position={{
-                lat: selectedC.mem_longitude+0.004,
-                lng: selectedC.mem_latitude
+                lat: selectedC.mem_longitude+0.008,
+                lng: selectedC.mem_latitude-0.0001
               }}
               onCloseClick = {()=>{
                 setSelectedC(null)

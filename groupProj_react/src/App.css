@@ -1,3 +1,9 @@
+@media only screen and (max-width: 1000px) {
+  table {
+      font-size: .5em;
+}
+}
+
 .App {
   text-align: center;
 }
@@ -207,7 +213,7 @@ table.blueTable tfoot .links a{
   align-items: stretch;
 }
 .assignment-map {
-  float: left;
+  /*float: left;*/
   box-sizing: border-box;
   background-color: lightskyblue;
   padding: 5px;
@@ -215,7 +221,7 @@ table.blueTable tfoot .links a{
   align-items: stretch;
 }
 .assignment-data {
-  float: right;
+  /*float: right;*/
   background-color: lightskyblue;
   height: 100%;
 }
@@ -249,9 +255,6 @@ div a:hover {
   height: 100%;
 }
 
-
-
-
 ul {
   box-sizing: border-box;
   height: 100%;
@@ -271,7 +274,6 @@ li {
   text-align: center;
   border-right: 1px solid rgb(248, 240, 196);
   height: 100%;
-  background-color: brown;
 }
 
 li a {  
