@@ -81,14 +81,22 @@ class App extends Component {
     const credencials = {userlogin, userpassword, userpasswordRetypped};
     let routeList = []
     let signupLink ="/signup"
-    let signinLink ="/"
+    let signinLink ="/login"
     
     if(isloggedin()){
-      routeList=(<Home clicked={this.logoutClick}/>)
+      routeList=[
+        <Route exact path="/login" render={()=><Redirect to="/"/>}/>,
+        <Route exact path="/signup" render={()=><Redirect to="/"/>}/>,
+        <Home clicked={this.logoutClick}/>,
+
+      ]
       } else {
         routeList=[
+          <Route exact path="/" render={(props)=><Redirect to="/login"/>} />,
           <Route exact path="/signup" render={(props)=><SignUp {...props} credencials={credencials} handleChange={this.handleChange} signupf={this.signupf} signinLink={signinLink}/>}/>,
-          <Route exact path="/" render={(props)=><SignIn {...props} credencials={credencials} handleChange={this.handleChange} loginf={this.loginf} signupLink={signupLink}/>} />
+          <Route exact path="/login" render={(props)=><SignIn {...props} credencials={credencials} handleChange={this.handleChange} loginf={this.loginf} signupLink={signupLink}/>} />,
+          <Route exact path="/assessor" render={(props)=><Redirect to="/login"/>} />,
+          <Route exact path="/assignment" render={(props)=><Redirect to="/login"/>} />
         ]
     }
 
