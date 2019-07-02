@@ -303,8 +303,11 @@ export default class Assignment extends Component {
                 <div className="inpt-box"><button  onClick={(event)=>{
                
                 this.assigncaremanagers()
-            }}>Assign Members</button>          
+                alert("Members Assigned")
+            }}>Assign Members</button> 
+             
             </div>
+            
             <div className="selectmanager">
             <label>Select Care Manager</label>
             <Select   id="caremanager" placeholder='SELECT CARE MANAGER'
@@ -325,6 +328,7 @@ export default class Assignment extends Component {
                 
             }}>View Assignment</button>
             </div>
+                   
                 {/* <div className="assignment-work">
                 <div className="inpt-box">
                     <input id="managerName" placeholder="manager"></input>
@@ -338,10 +342,9 @@ export default class Assignment extends Component {
             <div className="assignment-container">
                 <div className="assignment-column">
                     {totalassignedoutput}
+                    
                 </div>
-                <div className="assignment-column">
-                    <button>View Zip Code Allocation Statistics</button>
-                </div>
+                
                 <div className="assignment-column">
                     <div className="assignment-data" >
                         {outputtable}
