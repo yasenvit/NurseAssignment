@@ -237,8 +237,8 @@ div a {
   color: lightgray;
 }
 div a:hover {
-  color: white;
-  background-color:#00bcd4
+  /*color: white;*/
+  /*background-color:#00bcd4*/
 }
 .tagbox {
   box-sizing: border-box;
@@ -279,8 +279,6 @@ li a {
   font-size: small;
   padding: 5px;
   text-decoration: none;
-  color: white;
-  
 }
 li a:hover {
   height: 30px;

@@ -3,6 +3,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import Typography from '@material-ui/core/Typography';
 
 export class FormUserDetails extends Component {
   continue = e => {
@@ -38,8 +39,11 @@ export class FormUserDetails extends Component {
     return (
       <MuiThemeProvider>
         <React.Fragment>
-          <AppBar title="Enter Assessor" />
-          <TextField
+        <br />
+        <Typography component="h1" variant="h6">
+          ASSESSOR REGISTRATION FORM
+        </Typography>
+        <TextField
             hintText="Enter First Name"
             floatingLabelText="First Name"
             onChange={handleChange('firstName')}

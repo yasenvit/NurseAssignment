@@ -94,7 +94,7 @@ export default function SignIn(props) {
           </Button>
         </form>
       </div>
-      <Box mt={2}>
+      <Box component="span" m={1}>
         <Link href={signupLink} variant="body2">
           {"Don't have an account? Sign Up"}
         </Link>

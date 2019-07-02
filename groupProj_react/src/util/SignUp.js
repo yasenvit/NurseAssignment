@@ -127,10 +127,11 @@ export default function SignUp(props) {
         {buttonOutput}
         </form>
       </div>
+      
       <Box mt={2}>
         <Link href={signinLink} variant="body2">
           {"Have an account? Sign In"}
-          </Link>
+        </Link>
       </Box>
     </Container>
   );

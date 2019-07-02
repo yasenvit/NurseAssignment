@@ -98,8 +98,8 @@ def newcaremanager(api_key):
         if i.isdigit()==False or len(i)!=5:
             return jsonify(BADREQUEST),400
 
-    cm=caremanager.Caremanager()    
-    cm.cm_firstname=request.json['firstname']  
+    cm=caremanager.Caremanager()
+    cm.cm_firstname=request.json['firstname']
     cm.cm_lastname=request.json['lastname']
     cm.cm_maxcaseload=int(request.json['maxcaseload'])
     cm.save()  

@@ -5,7 +5,7 @@ import SignIn from './util/SignIn';
 import logoutf from './util/logoutf';
 import SignUp from './util/SignUp';
 import apiCall from './util/apiCall';
-import Nav from './components/Nav';
+import Home from './components/Home';
 import './App.css'
 
 class App extends Component {
@@ -82,15 +82,16 @@ class App extends Component {
     let routeList = []
     let signupLink ="/signup"
     let signinLink ="/"
-
+    
     if(isloggedin()){
-      routeList=(<Nav clicked={this.logoutClick}/>)
+      routeList=(<Home clicked={this.logoutClick}/>)
       } else {
         routeList=[
           <Route exact path="/signup" render={(props)=><SignUp {...props} credencials={credencials} handleChange={this.handleChange} signupf={this.signupf} signinLink={signinLink}/>}/>,
           <Route exact path="/" render={(props)=><SignIn {...props} credencials={credencials} handleChange={this.handleChange} loginf={this.loginf} signupLink={signupLink}/>} />
         ]
     }
+
     return (
       <BrowserRouter>
         <div className="App">

@@ -4,6 +4,7 @@ import AppBar from 'material-ui/AppBar';
 import { List, ListItem } from 'material-ui/List';
 import RaisedButton from 'material-ui/RaisedButton';
 import apiCall from '../util/apiCall';
+import Typography from '@material-ui/core/Typography';
 
 export class Confirm extends Component {
   getRecord(object) {
@@ -12,7 +13,7 @@ export class Confirm extends Component {
       firstname: object.firstName,
       lastname: object.lastName,
       zipcode: object.zipcodes,
-      maxcaseload: object.maxCasesLoad,
+      maxcaseload: parseInt(object.maxCasesLoad)>0 && parseInt(object.maxCasesLoad)<151?object.maxCasesLoad:150
     })
     promise.then(blob=>{
       this.props.getStatus({status: blob.status})
@@ -36,7 +37,10 @@ export class Confirm extends Component {
     return (
       <MuiThemeProvider>
         <React.Fragment>
-          <AppBar title="Confirm User Data" />
+        <br />
+        <Typography component="h1" variant="h6">
+          CONFIRMATION
+        </Typography>
           <List>
             <ListItem primaryText="First Name" secondaryText={firstName} />
             <ListItem primaryText="Last Name" secondaryText={lastName} />
