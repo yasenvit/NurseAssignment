@@ -250,9 +250,9 @@ export default class Assignment extends Component {
 
         let totalassignedoutput=(<p></p>) 
         if(this.state.assignedtotals==null){
-            totalassignedoutput=(<p><h3>TOTAL ASSIGNED: 0</h3></p>) 
+            totalassignedoutput=(<p style={{margin:"0px"}}><h4 style={{margin:"0px"}}>TOTAL ASSIGNED: 0</h4></p>) 
         } else {
-            totalassignedoutput=(<p><h3>TOTAL ASSIGNED: {this.state.assignedtotals}</h3></p>) 
+            totalassignedoutput=(<p style={{margin:"0px"}}><h4 style={{margin:"0px"}}>TOTAL ASSIGNED: {this.state.assignedtotals}</h4></p>) 
         }
         
         let theader=(<div></div>) 
@@ -275,7 +275,7 @@ export default class Assignment extends Component {
                 return(
 
 
-                    
+
                     <tr>
                         <td>{assigndata.caremanagerfirstname} {assigndata.caremanagerlastname}</td>
                         <td>{assigndata.mem_lastname}</td>
@@ -300,16 +300,17 @@ export default class Assignment extends Component {
     return (
         <div className="assignment">
             <div className="assignment-work">
-                <div className="inpt-box"><button  onClick={(event)=>{
-               
-                this.assigncaremanagers()
-                alert("Members Assigned")
-            }}>Assign Members</button> 
+                <div className="inpt-box">
+                    <button className="btn" onClick={(event)=>{
+                        this.assigncaremanagers()
+                        alert("Members Assigned")
+                        }}>Assign Members
+                    </button> 
              
             </div>
             
             <div className="selectmanager">
-            <label>Select Care Manager</label>
+            <label >Select Care Manager</label>
             <Select   id="caremanager" placeholder='SELECT CARE MANAGER'
                 value={this.cmselect}
                 onChange={this.handleChange}
@@ -317,7 +318,7 @@ export default class Assignment extends Component {
                 >Select Model</Select>
             </div>
             <div className="inpt-box">
-            <button onClick={(event)=>{
+            <button className="btn" onClick={(event)=>{
                 this.getcaremanagerassignment(this.state.cmselect)
                 this.getcaremanagerassignmenttotals(this.state.cmselect)
                 console.log('hit button')

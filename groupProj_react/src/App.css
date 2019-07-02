@@ -1,6 +1,6 @@
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 900px) {
   table {
-      font-size: .5em;
+      font-size: 0.5rem;
 }
 }
 
@@ -8,6 +8,8 @@
   text-align: center;
 }
 /*************************header for all****************************/
+inpt-box
+
 .body-box {
   box-sizing: border-box;
   margin-top: 0px;
@@ -227,6 +229,9 @@ table.blueTable tfoot .links a{
 }
 .inpt-box {
   padding: 2px;
+}
+.btn {
+  height: 35px;
 }
 /********************************************************************/
 .navbox {
