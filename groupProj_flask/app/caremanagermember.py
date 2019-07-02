@@ -58,6 +58,15 @@ class Caremanagermember(ORM):
         frominfo="from caremanagermember cmm join member mem on cmm.mempk=mem.mempk join caremanager cm on cmm.cmpk=cm.cmpk"
         values = (self.pk, self.mempk)
         return Caremanagermember.select_many_query(fieldinfo,where,frominfo,values)
+
+    def get_results_query_search_data(self,searchby):
+        """ return a list of each Member object for this user """
+        where = """WHERE cmm.cmpk = ? and (mem.mem_zip like '%{0}%' or mem.mem_firstname like '%{1}%' or mem.mem_lastname like '%{2}%'
+        or mem.mem_address like '%{3}%' or mem.mem_city like '%{4}%' or mem.mem_state like '%{5}%')""".format(searchby,searchby,searchby,searchby,searchby,searchby)
+        fieldinfo="mem.*,cm.*"
+        frominfo="from caremanagermember cmm join member mem on cmm.mempk=mem.mempk join caremanager cm on cmm.cmpk=cm.cmpk"
+        values = (self.pk,)
+        return Caremanagermember.select_many_query(fieldinfo,where,frominfo,values)
     
     def get_allresults(self):
         """ return a list of each Member object for this user """

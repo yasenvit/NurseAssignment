@@ -38,7 +38,19 @@ def caremanagermemberinfo():
     cm.pk=request.json['cmpk']    
     cmresults=cm.get_results_query()
 
-    json_list=[cmr.jsonquery() for cmr in cmresults]
+    json_list=[cmr.jsonquerysingle() for cmr in cmresults]
+    return jsonify({"output":json_list})
+
+@app.route('/api/caremanagermembersearch',methods=['POST'])
+def caremanagermembersearch():
+    if not request.json or 'cmpk' not in request.json:
+        return jsonify(BADREQUEST),400
+    
+    cm=caremanagermember.Caremanagermember()   
+    cm.pk=request.json['cmpk']    
+    cmresults=cm.get_results_query_search_data(request.json['searchby'])
+
+    json_list=[cmr.jsonquerysingle() for cmr in cmresults]
     return jsonify({"output":json_list})
 
 @app.route('/api/caremanagersinglememberinfo',methods=['POST'])

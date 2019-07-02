@@ -20,7 +20,8 @@ export default class Assignment extends Component {
         assignedlist:null,
         fileresponse:null,
         singlemember:[],
-        assignedtotals:null
+        assignedtotals:null,
+        searchby:null
     }
     /*Eric Hall's Added functions on 06/27/2019 */
     assigncaremanagers=()=>{
@@ -51,6 +52,27 @@ export default class Assignment extends Component {
                })
     
         } 
+
+    getcaremanagerassignmentsearch=(cmpk,searchbyinfo)=>{
+            const endpoint = "/api/caremanagermembersearch"
+            const promise = apiCall(endpoint,'POST',{"cmpk":cmpk,"searchby":searchbyinfo})
+                console.log('in api call function')
+                promise.then(blob=>blob.json()).then(json=>{
+                console.log('inside function')
+                console.log(json)
+                    this.setState({
+                        assignedlist:json.output,
+                        searchby:searchbyinfo,
+                        members:json.output
+                    })
+                    console.log(this.state.assignedlist)
+                    console.log(this.state.searchby)
+                    console.log('member array for search data')
+                    console.log(this.state.isShow)
+                    console.log(this.state.members)
+                   })
+        
+            }     
     getcaremanagerassignmenttotals=(cmpk)=>{
             const endpoint = "/api/caremanagermemberassignedtotals"
             const promise = apiCall(endpoint,'POST',{"cmpk":cmpk})
@@ -158,7 +180,8 @@ export default class Assignment extends Component {
  
     let output = (<div></div>)
     let bttn = (<button></button>)
-    
+    console.log("checking members list")
+    console.log(this.state.members)
     if(this.state.isShow === true){
         bttn = (
             <button type="button" onClick={(event) =>{
@@ -207,7 +230,25 @@ export default class Assignment extends Component {
         }
         }}
         console.log(this.state.selectcaremanagerlist)
-        let outputtable=(<div className="searchbox"><label>Search Data:</label><input id="searchtext" placeholder="SEARCH DATA"></input></div>)
+        let outputtable=(<div className="searchbox"><label>Search Data:</label>
+        <input id="searchtext" placeholder="SEARCH DATA" autoComplete="off" onChange={(event)=>{
+                    console.log('change event')
+                    console.log(this.state.searchby)
+                    if (document.getElementById('searchtext').value===''||document.getElementById('searchtext').value===null){
+                        /*this.getAllStocks()*/
+                        this.getcaremanagerassignment(this.state.cmselect)
+                        
+                    } else{
+                        this.getcaremanagerassignmentsearch(this.state.cmselect,document.getElementById('searchtext').value)
+                    }
+                    
+                    
+                    
+                        
+                }}></input></div>)
+        
+
+
         let totalassignedoutput=(<p></p>) 
         if(this.state.assignedtotals==null){
             totalassignedoutput=(<p><h3>TOTAL ASSIGNED: 0</h3></p>) 
@@ -235,12 +276,12 @@ export default class Assignment extends Component {
                 return(
                     <tr>
                         <td>{assigndata.caremanagerfirstname} {assigndata.caremanagerlastname}</td>
-                        <td>{assigndata.memberlastname}</td>
-                        <td>{assigndata.memberfirstname}</td>
-                        <td>{assigndata.memberaddress}</td>
-                        <td>{assigndata.membercity}</td>
-                        <td>{assigndata.memberstate}</td>
-                        <td>{assigndata.memberzip}</td>
+                        <td>{assigndata.mem_lastname}</td>
+                        <td>{assigndata.mem_firstname}</td>
+                        <td>{assigndata.mem_address}</td>
+                        <td>{assigndata.mem_city}</td>
+                        <td>{assigndata.mem_state}</td>
+                        <td>{assigndata.mem_zip}</td>
                         <td><button onClick={(event)=>{
                             this.onClickHandlerMember(
                                 
