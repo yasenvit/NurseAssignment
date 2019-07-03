@@ -250,9 +250,9 @@ export default class Assignment extends Component {
 
         let totalassignedoutput=(<div></div>) 
         if(this.state.assignedtotals==null){
-            totalassignedoutput=(<div ><h4 style={{margin:"0px"}}>TOTAL ASSIGNED: 0</h4></div>) 
+            totalassignedoutput=(<div ><h4 style={{margin:"0px", color:"green"}}>TOTAL ASSIGNED: 0</h4></div>) 
         } else {
-            totalassignedoutput=(<div><h4 style={{margin:"0px"}}>TOTAL ASSIGNED: {this.state.assignedtotals}</h4></div>) 
+            totalassignedoutput=(<div><h4 style={{margin:"0px", color:"green"}}>TOTAL ASSIGNED: {this.state.assignedtotals}</h4></div>) 
         }
         
         let theader=(<div></div>) 
@@ -290,8 +290,6 @@ export default class Assignment extends Component {
                                 assigndata.cmpk,
                                 assigndata.mempk
                             )
-                            
-
                         }}>
                             View Map</button></td>                        
                     </tr>
@@ -329,24 +327,11 @@ export default class Assignment extends Component {
                     
                     }}>View Assignment</button>
                 </div>
-                   
-                {/* <div className="assignment-work">
-                <div className="inpt-box">
-                    <input id="managerName" placeholder="manager"></input>
-                </div>
-                <div className="inpt-box">
-                    {bttn}
-                </div>
-                </div> */}
-                
             </div>
             <div style={{margin:"5px"}}>
-                    {totalassignedoutput}
-                    
-                </div>
-                
+                {totalassignedoutput}
+            </div>
             <div className="assignment-container">
-
                 <div className="assignment-column">
                     <div className="assignment-data" >
                         {outputtable}
@@ -366,6 +351,8 @@ export default class Assignment extends Component {
                             </tbody>
                         </table>
                     </div>   
+                </div>    
+                <div className="assignment-column">
                     {output}
                 </div>
             </div>
