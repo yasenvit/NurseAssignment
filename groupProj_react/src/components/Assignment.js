@@ -250,9 +250,9 @@ export default class Assignment extends Component {
 
         let totalassignedoutput=(<div></div>) 
         if(this.state.assignedtotals==null){
-            totalassignedoutput=(<div ><h4 style={{margin:"0px", color:"green"}}>TOTAL ASSIGNED: 0</h4></div>) 
+            totalassignedoutput=(<div ><h4 style={{margin:"0px", color:"black"}}>TOTAL ASSIGNED: 0</h4></div>) 
         } else {
-            totalassignedoutput=(<div><h4 style={{margin:"0px", color:"green"}}>TOTAL ASSIGNED: {this.state.assignedtotals}</h4></div>) 
+            totalassignedoutput=(<div><h4 style={{margin:"0px", color:"black"}}>TOTAL ASSIGNED: {this.state.assignedtotals}</h4></div>) 
         }
         
         let theader=(<div></div>) 
@@ -317,13 +317,19 @@ export default class Assignment extends Component {
                 </div>
                 <div className="inpt-box">
                     <button className="btn" onClick={(event)=>{
-                    this.getcaremanagerassignment(this.state.cmselect)
-                    this.getcaremanagerassignmenttotals(this.state.cmselect)
+                    
                     console.log('hit button')
-                    this.onClickHandler(
-                        // document.getElementById('managerName').value
-                        this.state.cmselect
-                    )
+                    if(this.state.cmselect===null){
+                        alert("You need to select a Care Manager")
+                    } else{
+                        this.getcaremanagerassignment(this.state.cmselect)
+                        this.getcaremanagerassignmenttotals(this.state.cmselect)
+                        this.onClickHandler(
+                            // document.getElementById('managerName').value
+                            this.state.cmselect
+                        )
+                    }
+                    
                     
                     }}>View Assignment</button>
                 </div>

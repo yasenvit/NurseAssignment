@@ -209,6 +209,7 @@ table.blueTable tfoot .links a{
   flex-direction: row;
 }
 .assignment-column {
+  flex:1;
   box-sizing: border-box;
   background-color: whitesmoke;
   padding: 5px;

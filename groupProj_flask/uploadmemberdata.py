@@ -11,7 +11,7 @@ api_key = 'AIzaSyDfdsQfk2OJkQPHiZzEHeeyASm9z9efzXU'
 def getgoogleinfo(apikey,address,city,state,zipcode):
     url = 'https://maps.googleapis.com/maps/api/geocode/json?'
     # address=1600+Amphitheatre+Parkway,+Mountain+View,
-    address=str(address).replace(' ','+')
+    address=str(address).replace(' ','+').replace('#','')
     city=str(city).replace(' ','+')
     state=str(state).replace(' ','+')
 
