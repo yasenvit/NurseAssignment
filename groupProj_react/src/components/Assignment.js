@@ -309,10 +309,10 @@ export default class Assignment extends Component {
                 
             </div>
             <div className="assignment-container">
-                <div className="assignment-column">
+                <div className="assignment-column" style={{paddingRight:"0px"}}>
                     <div className="assignment-data" >
                        
-                        <table className="blueTable">
+                        <table className="blueTable" >
                             <tbody>
                                 <tr>
                                     <th>Care Manager</th>
