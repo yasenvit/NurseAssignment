@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Route, Link, NavLink} from 'react-router-dom'
+import {Route, NavLink} from 'react-router-dom'
 import Logout from '../util/Logout'
 import Assignment from './Assignment'
 import Assessor from './Assessor'

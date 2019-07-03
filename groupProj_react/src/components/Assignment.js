@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react'
 import apiCall from '../util/apiCall';
-import Home from './Home';
 import Display from './Display'
 import Select from 'react-select';
 
@@ -20,7 +19,7 @@ export default class Assignment extends Component {
         assignedlist:null,
         fileresponse:null,
         singlemember:[],
-        assignedtotals:null,
+        assignedtotals:0,
         searchby:null
     }
     /*Eric Hall's Added functions on 06/27/2019 */
@@ -34,7 +33,8 @@ export default class Assignment extends Component {
             this.setState({
                 assignmentdata:json.output
             })
-        })}
+        })
+    }
     getcaremanagerassignment=(cmpk)=>{
         const endpoint = "/api/caremanagermemberinfo"
         const promise = apiCall(endpoint,'POST',{"cmpk":cmpk})
@@ -170,7 +170,7 @@ export default class Assignment extends Component {
         console.log(this.state.members)
         if(this.state.isShow === true){
             bttn = (
-                <button type="button" onClick={(event) =>{
+                <button type="button" onClick={() =>{
                     this.onClickHandler(
                         document.getElementById('managerName').value
                     )
@@ -185,7 +185,7 @@ export default class Assignment extends Component {
             )
         } else {
             bttn = (
-                <button type="button" onClick={(event) =>{
+                <button type="button" onClick={() =>{
                     this.onClickHandlerMember(
                         // document.getElementById('managerName').value
                         this.state.singlemember
@@ -227,16 +227,14 @@ export default class Assignment extends Component {
                 }}>
             </input>
         </div>)
-        let totalassignedoutput=(<div></div>) 
-        if(this.state.assignedtotals==null){
-            totalassignedoutput=(<div ><h4 style={{margin:"0px"}}>TOTAL ASSIGNED: 0</h4></div>) 
-        } else {
-            totalassignedoutput=(<div><h4 style={{margin:"0px"}}>TOTAL ASSIGNED: {this.state.assignedtotals}</h4></div>) 
-        }
+        /*let totalassignedoutput= 0 
+        if(this.state.assignedtotals){
+            totalassignedoutput= this.state.assignedtotals 
+        }*/
         
         let theader=(<div></div>) 
         let tdetail=null 
-        if (this.state.fileresponse=='Upload Successful'){
+        if (this.state.fileresponse==='Upload Successful'){
             theader=results=>{return(
                 <table>
                     <th>Care Manager</th>
@@ -260,7 +258,7 @@ export default class Assignment extends Component {
                         <td>{assigndata.mem_state}</td>
                         <td>{assigndata.mem_zip}</td>
                         <td>
-                            <button onClick={(event)=>{
+                            <button onClick={()=>{
                                 this.onClickHandlerMember(
                                     assigndata.cmpk,
                                     assigndata.mempk
@@ -278,7 +276,7 @@ export default class Assignment extends Component {
             </div>
             <div className="assignment-work">
                 <div className="inpt-box">
-                    <button className="btn" onClick={(event)=>{
+                    <button className="btn" onClick={()=>{
                         this.assigncaremanagers()
                         alert("Members Assigned")
                         }}>Assign Members
@@ -306,7 +304,7 @@ export default class Assignment extends Component {
             </div>
             <div style={{marginTop:"5px",margin:"5px", display:"flex", flexDirection:"row", justifyContent:"space-between"}}>
                 {outputtable}
-                {totalassignedoutput}
+                <div ><h4 style={{margin:"0px"}}>TOTAL ASSIGNED: {this.state.assignedtotals}</h4></div>
                 <div style={{width:"25%"}}></div>
                 
             </div>

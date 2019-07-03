@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
 import { List, ListItem } from 'material-ui/List';
 import RaisedButton from 'material-ui/RaisedButton';
 import apiCall from '../util/apiCall';
@@ -37,6 +36,8 @@ export class Confirm extends Component {
     return (
       <MuiThemeProvider>
         <React.Fragment>
+        <br />
+        <br />
         <br />
         <Typography component="h1" variant="h6">
           CONFIRMATION

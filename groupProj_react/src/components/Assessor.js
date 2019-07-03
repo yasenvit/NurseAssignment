@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import "../App.css"
 import { UserForm } from '../componentsInput/UserForm'
 import { Redirect } from 'react-router-dom'
+import "../App.css"
 
 export default class Assessor extends Component {
  

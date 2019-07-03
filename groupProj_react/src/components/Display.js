@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import {GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow} from 'react-google-maps';
 import WrappedMap from './Map';
 
 

@@ -10,7 +10,6 @@ import './App.css'
 
 class App extends Component {
   state={
-    homelink: "/",
     userlogin: null,
     userpassword: "",
     userpasswordRetypped: "",
@@ -88,7 +87,6 @@ class App extends Component {
         <Route exact path="/login" render={()=><Redirect to="/"/>}/>,
         <Route exact path="/signup" render={()=><Redirect to="/"/>}/>,
         <Home clicked={this.logoutClick}/>,
-
       ]
       } else {
         routeList=[
