@@ -86,14 +86,13 @@ inpt-box
   align-items: stretch;
 }
 
-.searchbox input{
-  height: 40%;
-  width:40%;
-}
-
-.searchbox label{
+.searchbox {
+  width:25%;
+  padding:2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   font-weight: bold;
-  padding-right: 12px;
 }
 
 table.blueTable {
@@ -209,6 +208,7 @@ table.blueTable tfoot .links a{
   flex-direction: row;
 }
 .assignment-column {
+  flex:1;
   box-sizing: border-box;
   background-color: whitesmoke;
   padding: 5px;
