@@ -248,11 +248,11 @@ export default class Assignment extends Component {
         
 
 
-        let totalassignedoutput=(<p></p>) 
+        let totalassignedoutput=(<div></div>) 
         if(this.state.assignedtotals==null){
-            totalassignedoutput=(<p style={{margin:"0px"}}><h4 style={{margin:"0px"}}>TOTAL ASSIGNED: 0</h4></p>) 
+            totalassignedoutput=(<div ><h4 style={{margin:"0px"}}>TOTAL ASSIGNED: 0</h4></div>) 
         } else {
-            totalassignedoutput=(<p style={{margin:"0px"}}><h4 style={{margin:"0px"}}>TOTAL ASSIGNED: {this.state.assignedtotals}</h4></p>) 
+            totalassignedoutput=(<div><h4 style={{margin:"0px"}}>TOTAL ASSIGNED: {this.state.assignedtotals}</h4></div>) 
         }
         
         let theader=(<div></div>) 
@@ -299,6 +299,9 @@ export default class Assignment extends Component {
             })}    
     return (
         <div className="assignment">
+            <div style={{width:"100%", alignItems:"center", padding:"2px"}}>
+                <label >Select Care Manager</label>  
+            </div>
             <div className="assignment-work">
                 <div className="inpt-box">
                     <button className="btn" onClick={(event)=>{
@@ -306,29 +309,26 @@ export default class Assignment extends Component {
                         alert("Members Assigned")
                         }}>Assign Members
                     </button> 
-             
-            </div>
-            
-            <div className="selectmanager">
-            <label >Select Care Manager</label>
-            <Select   id="caremanager" placeholder='SELECT CARE MANAGER'
-                value={this.cmselect}
-                onChange={this.handleChange}
-                options={this.state.selectcaremanagerlist}
-                >Select Model</Select>
-            </div>
-            <div className="inpt-box">
-            <button className="btn" onClick={(event)=>{
-                this.getcaremanagerassignment(this.state.cmselect)
-                this.getcaremanagerassignmenttotals(this.state.cmselect)
-                console.log('hit button')
-                this.onClickHandler(
-                    // document.getElementById('managerName').value
-                    this.state.cmselect
-                )
-                
-            }}>View Assignment</button>
-            </div>
+                </div>
+                <div className="selectmanager">
+                    <Select   id="caremanager" placeholder='SELECT CARE MANAGER'
+                    value={this.cmselect}
+                    onChange={this.handleChange}
+                    options={this.state.selectcaremanagerlist}
+                    >Select Model</Select>
+                </div>
+                <div className="inpt-box">
+                    <button className="btn" onClick={(event)=>{
+                    this.getcaremanagerassignment(this.state.cmselect)
+                    this.getcaremanagerassignmenttotals(this.state.cmselect)
+                    console.log('hit button')
+                    this.onClickHandler(
+                        // document.getElementById('managerName').value
+                        this.state.cmselect
+                    )
+                    
+                    }}>View Assignment</button>
+                </div>
                    
                 {/* <div className="assignment-work">
                 <div className="inpt-box">
@@ -340,12 +340,13 @@ export default class Assignment extends Component {
                 </div> */}
                 
             </div>
-            <div className="assignment-container">
-                <div className="assignment-column">
+            <div style={{margin:"5px"}}>
                     {totalassignedoutput}
                     
                 </div>
                 
+            <div className="assignment-container">
+
                 <div className="assignment-column">
                     <div className="assignment-data" >
                         {outputtable}

@@ -183,6 +183,8 @@ table.blueTable tfoot .links a{
 
 /***********************assignment*****************************/
 .assignment {
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
   background-color: skyblue;
   height: 100%;
@@ -201,6 +203,7 @@ table.blueTable tfoot .links a{
   box-sizing: border-box;
   height: 100%;
   background-color: lightskyblue;
+  justify-content: space-around;
   padding: 5px;
   display: flex;
   flex-direction: column;
