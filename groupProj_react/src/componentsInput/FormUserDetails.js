@@ -40,6 +40,8 @@ export class FormUserDetails extends Component {
       <MuiThemeProvider>
         <React.Fragment>
         <br />
+        <br />
+        <br />
         <Typography component="h1" variant="h6">
           ASSESSOR REGISTRATION FORM
         </Typography>

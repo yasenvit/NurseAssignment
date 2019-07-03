@@ -40,6 +40,7 @@ export default class Home extends Component {
               onClick={this.componentWillUnmount}
               exact to="/"
               activeStyle={{color:"whitesmoke",backgroundColor:"#00bcd4"}}
+              style={{textTransform: "uppercase"}}
               >home
             </NavLink>
           </div>
@@ -48,6 +49,7 @@ export default class Home extends Component {
               onClick={this.componentWillUnmount}
               exact to="/assessor"
               activeStyle={{color:"whitesmoke",backgroundColor:"#00bcd4"}}
+              style={{textTransform: "uppercase"}}
               >care manager profile
             </NavLink>
           </div>
@@ -56,6 +58,7 @@ export default class Home extends Component {
               onClick={this.componentWillUnmount}
               exact to="/assignment"
               activeStyle={{color:"whitesmoke",backgroundColor:"#00bcd4"}}
+              style={{textTransform: "uppercase"}}
               >care manager assignment
             </NavLink>
           </div>

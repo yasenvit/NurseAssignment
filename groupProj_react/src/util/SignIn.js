@@ -94,8 +94,8 @@ export default function SignIn(props) {
           </Button>
         </form>
       </div>
-      <Box component="span" m={1}>
-        <Link href={signupLink} variant="body2">
+      <Box alignItems="center" mt={1}>
+        <Link alignItems="center" href={signupLink} variant="body2">
           {"Don't have an account? Sign Up"}
         </Link>
       </Box>
