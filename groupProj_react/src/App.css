@@ -1,179 +1,6 @@
-@media only screen and (max-width: 900px) {
-  table {
-      font-size: 0.5rem;
-}
-}
-
 .App {
   text-align: center;
 }
-/*************************header for all****************************/
-inpt-box
-
-.body-box {
-  box-sizing: border-box;
-  margin-top: 0px;
-  background-color: beige;
-  width: 100vw;
-  height: 100vh;
-  padding: 2px;
-  }
-.header {
-  box-sizing: border-box;
-  height: 5vh;  
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-}
-/*******************************login page*************************************/
-.header-center {
-  box-sizing: border-box;
-  display:"flex";
-  flex:"1";
-  text-align:center
-}
-.logs-block {
-  display: flex;
-  flex-direction: row;
-  flex:initial;
-  width: 25%;
-  justify-content: space-around;
-  align-items: center;
-  padding: 0.1rem;
-}
-.loginBox,
-.signupBox {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  height: 200px;
-  width: 250px;
-  justify-content: center;
-  align-items: center;
-  margin: 2rem;
-  padding: 1rem;
-  background-color: #c4c2c2;
-  opacity: 0.8
-}
-.output-container {
-  box-sizing: border-box;
-  display: flex;
-  width:100%;
-  padding: 2px;
-  justify-content: center;
-  align-items: center;
-}
-/***************************Assignment*************************/
-.selectmanager{
-  /* box-sizing: border-box;
-  display: flex;
-  width:100%;
-  padding: 2px;
-  justify-content: center;
-  align-items: center; */
-  width: 40%;
-  
-}
-
-.searchbox{
-  box-sizing: border-box;
-  background-color: lightskyblue;
-  padding: 3px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start; 
-  align-items: stretch;
-  font-weight: bold;
-}
-
-table.blueTable {
-  border: 1px solid #1C6EA4;
-  background-color: #EEEEEE;
-  width: 100%;
-  text-align: left;
-  border-collapse: collapse;
-  font-family: "Times New Roman", Times, serif;
-  color:black
-  
-  
-}
-table.blueTable td, table.blueTable th {
-  border: 1px solid #AAAAAA;
-  padding: 3px 2px;
-}
-table.blueTable tbody td {
-  font-size: 20px;
-}
-table.blueTable tr:nth-child(even) {
-  background: #D0E4F5;
-}
-table.blueTable thead {
-  background: #1C6EA4;
-  background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-  background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-  border-bottom: 2px solid #444444;
-}
-table.blueTable thead th {
-  font-size: 23px;
-  font-weight: bold;
-  color: #FFFFFF;
-  border-left: 2px solid #D0E4F5;
-  border-right: 2px solid #D0E4F5;
-}
-table.blueTable thead th:first-child {
-  border-left: none;
-}
-
-table.blueTable tfoot {
-  font-size: 14px;
-  font-weight: bold;
-  color: #FFFFFF;
-  background: #D0E4F5;
-  background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
-  background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
-  background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
-  border-top: 2px solid #444444;
-}
-table.blueTable tfoot td {
-  font-size: 14px;
-}
-table.blueTable tfoot .links {
-  text-align: right;
-}
-table.blueTable tfoot .links a{
-  display: inline-block;
-  background: #1C6EA4;
-  color: #FFFFFF;
-  padding: 2px 8px;
-  border-radius: 5px;
-}
-/***************************nav*******************************/    
-.nav {
-  height: 10%;
-}
-.nav-container {
-  box-sizing: border-box;
-  height:100%;
-  width: 100%;
-}
-.nav-header {
-  box-sizing: border-box;
-  padding: 0px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: stretch;
-  background-color: rgb(68, 149, 177);
-}
-.nav-output {
-  box-sizing: border-box;
-  height: 85%;
-  width: 100%;
-}
-
-/***********************assignment*****************************/
 .assignment {
   display: flex;
   flex-direction: column;
@@ -223,7 +50,6 @@ table.blueTable tfoot .links a{
   height: 82vh;
   overflow: hidden;
 }
-
 .assignment-map {
   flex:1;
   display: flex;
@@ -240,25 +66,8 @@ table.blueTable tfoot .links a{
   background-color: lightskyblue;
   height: 100%;
 }
-
-.table-wrap {
-  height: 80vh;
-  overflow-y: auto;
-}
-
-
-.inpt-box {
-  padding: 2px;
-}
 .btn {
   height: 35px;
-}
-/********************************************************************/
-.navbox {
-  display: flex;
-  flex-direction: row;
-  box-sizing: border-box;
-  align-items: stretch;
 }
 div a {  
   display: flex;
@@ -268,31 +77,33 @@ div a {
   text-decoration: none;
   color: lightgray;
 }
-
-/*div a:hover {
-  color: white;
-  background-color:#00bcd4
-}*/
-.tagbox {
-  box-sizing: border-box;
+.homebox {
   display: flex;
-  align-items: stretch;
-  text-align: center;
-  border-right: 1px solid #26c6da;
-  height: 100%;
-}
-
-ul {
+  flex-direction: row;
   box-sizing: border-box;
-  height: 100%;
   align-items: stretch;
-  text-align: center;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color:  rgb(92, 185, 95);
-  
+}
+.home-container {
+  box-sizing: border-box;
+  height:100%;
+  width: 100%;
+}
+.home-header {
+  box-sizing: border-box;
+  padding: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  background-color: rgb(68, 149, 177);
+}
+.home-output {
+  box-sizing: border-box;
+  height: 85%;
+  width: 100%;
+}
+.inpt-box {
+  padding: 2px;
 }
 li {
   box-sizing: border-box;
@@ -302,7 +113,6 @@ li {
   border-right: 1px solid rgb(248, 240, 196);
   height: 100%;
 }
-
 li a {  
   display: block;
   font-size: small;
@@ -314,4 +124,107 @@ li a:hover {
   text-align: center;
   background-color: rgb(163, 233, 204);
   color: rgb(5, 133, 5)
+}
+.output-container {
+  box-sizing: border-box;
+  display: flex;
+  width:100%;
+  padding: 2px;
+  justify-content: center;
+  align-items: center;
+}
+.selectmanager{
+  width: 40%;
+}
+.searchbox{
+  box-sizing: border-box;
+  background-color: lightskyblue;
+  padding: 3px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start; 
+  align-items: stretch;
+  font-weight: bold;
+}
+table.blueTable {
+  border: 1px solid #1C6EA4;
+  background-color: #EEEEEE;
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  font-family: "Times New Roman", Times, serif;
+  color:black
+}
+table.blueTable td, table.blueTable th {
+  border: 1px solid #AAAAAA;
+  padding: 3px 2px;
+}
+table.blueTable tbody td {
+  font-size: 20px;
+}
+table.blueTable tr:nth-child(even) {
+  background: #D0E4F5;
+}
+table.blueTable thead {
+  background: #1C6EA4;
+  background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  border-bottom: 2px solid #444444;
+}
+table.blueTable thead th {
+  font-size: 23px;
+  font-weight: bold;
+  color: #FFFFFF;
+  border-left: 2px solid #D0E4F5;
+  border-right: 2px solid #D0E4F5;
+}
+table.blueTable thead th:first-child {
+  border-left: none;
+}
+table.blueTable tfoot {
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFFFFF;
+  background: #D0E4F5;
+  background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  border-top: 2px solid #444444;
+}
+table.blueTable tfoot td {
+  font-size: 14px;
+}
+table.blueTable tfoot .links {
+  text-align: right;
+}
+table.blueTable tfoot .links a{
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+.table-wrap {
+  height: 80vh;
+  overflow-y: auto;
+}
+.tagbox {
+  box-sizing: border-box;
+  display: flex;
+  align-items: stretch;
+  text-align: center;
+  border-right: 1px solid #26c6da;
+  height: 100%;
+}
+ul {
+  box-sizing: border-box;
+  height: 100%;
+  align-items: stretch;
+  text-align: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color:  rgb(92, 185, 95);
 }

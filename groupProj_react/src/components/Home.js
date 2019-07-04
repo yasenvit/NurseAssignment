@@ -32,9 +32,9 @@ export default class Home extends Component {
         <Assignment newAssessor={this.state.newAssessor} {...props} />}/>,
     ]
   return (
-    <div className="nav-container">
-      <div className="nav-header">
-        <div className="navbox">
+    <div className="home-container">
+      <div className="home-header">
+        <div className="homebox">
           <div className="tagbox">
             <NavLink
               onClick={this.componentWillUnmount}
@@ -67,7 +67,7 @@ export default class Home extends Component {
         {appLogout}
       </div>
       </div>
-        <div className="nav-output">
+        <div className="home-output">
           {routeList}
         </div>
       </div>
