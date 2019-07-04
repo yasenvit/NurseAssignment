@@ -8,7 +8,7 @@ function Map(props) {
         defaultZoom={11}
         defaultCenter={{lat:40.650104, lng:-73.949582}}
       >
-        {props.members.slice(0,2).map((member) => (
+        {props.members.map((member) => (
             <Marker 
               key={member.id}
               position={{
