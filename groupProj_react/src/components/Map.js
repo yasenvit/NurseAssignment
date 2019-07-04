@@ -5,7 +5,7 @@ function Map(props) {
     const [selectedC, setSelectedC] = useState(null);
     return(
       <GoogleMap
-        defaultZoom={12}
+        defaultZoom={11}
         defaultCenter={{lat:40.650104, lng:-73.949582}}
       >
         {props.members.map((member) => (

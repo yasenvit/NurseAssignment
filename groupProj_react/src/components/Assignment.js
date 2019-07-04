@@ -214,7 +214,7 @@ export default class Assignment extends Component {
         console.log(this.state.selectcaremanagerlist)
         let outputtable=(
         <div className="searchbox">
-            <div style={{padding:"0px 10px 0px 10px"}}>Search Data:</div>
+            <div style={{paddingRight:"12px"}}>Search Data:</div>
             <input  id="searchtext" placeholder="SEARCH DATA" autoComplete="off" onChange={(event)=>{
                 console.log('change event')
                 console.log(this.state.searchby)
@@ -227,10 +227,6 @@ export default class Assignment extends Component {
                 }}>
             </input>
         </div>)
-        /*let totalassignedoutput= 0 
-        if(this.state.assignedtotals){
-            totalassignedoutput= this.state.assignedtotals 
-        }*/
         
         let theader=(<div></div>) 
         let tdetail=null 
@@ -308,16 +304,16 @@ export default class Assignment extends Component {
                     }}>View Assignment</button>
                 </div>
             </div>
-            <div style={{marginTop:"5px",margin:"5px", display:"flex", flexDirection:"row", justifyContent:"space-between"}}>
-                {outputtable}
-                <div ><h4 style={{margin:"0px"}}>TOTAL ASSIGNED: {this.state.assignedtotals}</h4></div>
-                <div style={{width:"25%"}}></div>
+            <div style={{margin:"5px",justifyContent:"center"}}>
                 
+                <div><h4 style={{margin:"0px"}}>TOTAL ASSIGNED: {this.state.assignedtotals}</h4></div>
+
             </div>
             <div className="assignment-container">
-                <div className="assignment-column" style={{paddingRight:"0px"}}>
+                <div className="assignment-column-left" style={{paddingRight:"0px"}}>
                     <div className="assignment-data" >
-                       
+                        {outputtable}
+                        <div class="table-wrap">
                         <table className="blueTable" >
                             <tbody>
                                 <tr>
@@ -333,9 +329,10 @@ export default class Assignment extends Component {
                                 {tdetail}
                             </tbody>
                         </table>
+                        </div>
                     </div>   
                 </div>    
-                <div className="assignment-column">
+                <div className="assignment-column-right">
                     {output}
                 </div>
             </div>
