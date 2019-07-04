@@ -209,7 +209,7 @@ table.blueTable tfoot .links a{
   flex-direction: row;
   justify-content: flex-start;
   align-items: stretch;
-  height: 71vh;
+  height: 82vh;
 }
 .assignment-column-right {
   flex:1;
@@ -220,7 +220,7 @@ table.blueTable tfoot .links a{
   flex-direction: row;
   justify-content: flex-start;
   align-items: stretch;
-  height: 71vh;
+  height: 82vh;
   overflow: hidden;
 }
 
@@ -242,7 +242,7 @@ table.blueTable tfoot .links a{
 }
 
 .table-wrap {
-  height: 75vh;
+  height: 80vh;
   overflow-y: auto;
 }
 
