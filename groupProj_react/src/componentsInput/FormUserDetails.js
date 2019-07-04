@@ -60,7 +60,7 @@ export class FormUserDetails extends Component {
           <br />
           <TextField
             hintText="Zipcodes, comma separated"
-            floatingLabelText="Enter Prefered Zipcodes"
+            floatingLabelText="Enter Preferred Zipcodes"
             onChange={handleChange('zipcodes')}
             defaultValue={values.zipcodes}
           />

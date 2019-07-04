@@ -105,26 +105,7 @@ div a {
 .inpt-box {
   padding: 2px;
 }
-li {
-  box-sizing: border-box;
-  float: left;
-  align-items: stretch;
-  text-align: center;
-  border-right: 1px solid rgb(248, 240, 196);
-  height: 100%;
-}
-li a {  
-  display: block;
-  font-size: small;
-  padding: 5px;
-  text-decoration: none;
-}
-li a:hover {
-  height: 30px;
-  text-align: center;
-  background-color: rgb(163, 233, 204);
-  color: rgb(5, 133, 5)
-}
+
 .output-container {
   box-sizing: border-box;
   display: flex;
@@ -160,8 +141,10 @@ table.blueTable td, table.blueTable th {
   padding: 3px 2px;
 }
 table.blueTable tbody td {
-  font-size: 20px;
-}
+  padding: 2px;
+  font-size: 18px;
+  text-align: center;
+  }
 table.blueTable tr:nth-child(even) {
   background: #D0E4F5;
 }
@@ -173,8 +156,9 @@ table.blueTable thead {
   border-bottom: 2px solid #444444;
 }
 table.blueTable thead th {
-  font-size: 23px;
-  font-weight: bold;
+  font-weight: 400;
+  text-align: center;
+  font-size: 18px;
   color: #FFFFFF;
   border-left: 2px solid #D0E4F5;
   border-right: 2px solid #D0E4F5;
@@ -228,3 +212,4 @@ ul {
   overflow: hidden;
   background-color:  rgb(92, 185, 95);
 }
+

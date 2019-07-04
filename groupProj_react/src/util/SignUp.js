@@ -73,6 +73,8 @@ export default function SignUp(props) {
   return (
     <Container component="main" maxWidth="xs">
       <br />
+      <br />
+      <br />
       <Typography component="h6" variant="h6">
           Nurse Assignment Tools
       </Typography>
