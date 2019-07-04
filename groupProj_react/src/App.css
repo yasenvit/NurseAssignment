@@ -84,14 +84,6 @@ inpt-box
   flex-direction: row;
   justify-content: flex-start; 
   align-items: stretch;
-}
-
-.searchbox {
-  width:25%;
-  padding:2px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
   font-weight: bold;
 }
 
@@ -208,7 +200,7 @@ table.blueTable tfoot .links a{
   display: flex;
   flex-direction: row;
 }
-.assignment-column {
+.assignment-column-left {
   flex:1;
   box-sizing: border-box;
   background-color: whitesmoke;
@@ -217,7 +209,21 @@ table.blueTable tfoot .links a{
   flex-direction: row;
   justify-content: flex-start;
   align-items: stretch;
+  height: 71vh;
 }
+.assignment-column-right {
+  flex:1;
+  box-sizing: border-box;
+  background-color: whitesmoke;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  height: 71vh;
+  overflow: hidden;
+}
+
 .assignment-map {
   flex:1;
   display: flex;
@@ -234,6 +240,13 @@ table.blueTable tfoot .links a{
   background-color: lightskyblue;
   height: 100%;
 }
+
+.table-wrap {
+  height: 75vh;
+  overflow-y: auto;
+}
+
+
 .inpt-box {
   padding: 2px;
 }

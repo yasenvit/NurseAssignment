@@ -6,7 +6,7 @@ export default class Display extends Component{
   render() {
 
   return (
-  <div style={{width:'50vw', height:'83vh'}}>
+  <div style={{width:'49vw', height:'71vh'}}>
     
     <WrappedMap 
       
