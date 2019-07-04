@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import FormUserDetails from './FormUserDetails';
 import Confirm from './Confirm';
 import Success from './Success';
-import { object } from 'prop-types';
 
 export class UserForm extends Component {
   state = {

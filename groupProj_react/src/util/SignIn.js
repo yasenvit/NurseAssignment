@@ -1,19 +1,15 @@
 import React from 'react';
-import {BrowserRouter, Route} from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import SignUp from './SignUp';
+
 
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -94,8 +90,8 @@ export default function SignIn(props) {
           </Button>
         </form>
       </div>
-      <Box component="span" m={1}>
-        <Link href={signupLink} variant="body2">
+      <Box alignItems="center" mt={1}>
+        <Link alignItems="center" href={signupLink} variant="body2">
           {"Don't have an account? Sign Up"}
         </Link>
       </Box>

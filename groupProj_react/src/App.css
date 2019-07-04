@@ -86,14 +86,13 @@ inpt-box
   align-items: stretch;
 }
 
-.searchbox input{
-  height: 40%;
-  width:40%;
-}
-
-.searchbox label{
+.searchbox {
+  width:25%;
+  padding:2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   font-weight: bold;
-  padding-right: 12px;
 }
 
 table.blueTable {
@@ -129,6 +128,7 @@ table.blueTable thead th {
   font-weight: bold;
   color: #FFFFFF;
   border-left: 2px solid #D0E4F5;
+  border-right: 2px solid #D0E4F5;
 }
 table.blueTable thead th:first-child {
   border-left: none;
@@ -249,15 +249,17 @@ table.blueTable tfoot .links a{
 }
 div a {  
   display: flex;
-  text-transform: uppercase;
+  justify-content: center;
+  /*text-transform: uppercase;*/
   padding:0.75rem 0.5rem 0rem 0.5rem;
   text-decoration: none;
   color: lightgray;
 }
-div a:hover {
-  /*color: white;*/
-  /*background-color:#00bcd4*/
-}
+
+/*div a:hover {
+  color: white;
+  background-color:#00bcd4
+}*/
 .tagbox {
   box-sizing: border-box;
   display: flex;
@@ -277,7 +279,7 @@ ul {
   padding: 0;
   overflow: hidden;
   background-color:  rgb(92, 185, 95);
-  /*background-color:  rgb(68, 149, 177);*/
+  
 }
 li {
   box-sizing: border-box;

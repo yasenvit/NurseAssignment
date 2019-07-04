@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import Typography from '@material-ui/core/Typography';
@@ -39,6 +38,8 @@ export class FormUserDetails extends Component {
     return (
       <MuiThemeProvider>
         <React.Fragment>
+        <br />
+        <br />
         <br />
         <Typography component="h1" variant="h6">
           ASSESSOR REGISTRATION FORM
