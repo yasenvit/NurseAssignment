@@ -42,7 +42,7 @@ export class FormUserDetails extends Component {
         <br />
         <br />
         <Typography component="h1" variant="h6">
-          ASSESSOR REGISTRATION FORM
+          CARE MANAGER REGISTRATION FORM
         </Typography>
         <TextField
             hintText="Enter First Name"
